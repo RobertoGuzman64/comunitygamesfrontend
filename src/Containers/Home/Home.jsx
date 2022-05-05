@@ -4,14 +4,11 @@ import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 
 
-
 const Home = () => {
-    return(
+    return (
         <div className='paginaHome'>
             <Header />
-            <div className='container-fluid'>
-                
-            </div>
+
             <Footer />
         </div>
     )
