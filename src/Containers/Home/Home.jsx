@@ -9,7 +9,9 @@ const Home = () => {
     return(
         <div className='paginaHome'>
             <Header />
-            <h1>PAGINA DE HOME</h1>
+            <div className='container-fluid'>
+                
+            </div>
             <Footer />
         </div>
     )
