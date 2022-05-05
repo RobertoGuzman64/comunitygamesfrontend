@@ -1,6 +1,7 @@
 .paginaHome {
+    background-color: red;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #2B2B31;
-    height: 100vh;
+    justify-content: space-between;
 }
