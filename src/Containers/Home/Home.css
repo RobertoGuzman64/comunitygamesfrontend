@@ -1,0 +1,6 @@
+.paginaHome {
+    display: flex;
+    flex-direction: column;
+    background-color: #2B2B31;
+    height: 100vh;
+}
