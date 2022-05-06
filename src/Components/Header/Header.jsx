@@ -20,10 +20,10 @@ const Header = () => {
                 <Button onClick={() => cambiarPagina("/")}variant="outline-secondary">Home</Button>{' '}
                 <Button onClick={() => cambiarPagina("/Comunidades")}variant="outline-secondary">Comunidades</Button>{' '}
                 <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}
-                <Button onClick={() => cambiarPagina("/Registro")}variant="outline-secondary">Registro</Button>{' '}
                 <Button variant="outline-secondary">Mi Perfil</Button>{' '}
                 <Button variant="outline-secondary">Secondary</Button>{' '}
-                <Button variant="light">Login</Button>
+                <Button onClick={() => cambiarPagina("/Registro")}variant="outline-secondary">Registro</Button>{' '}
+                <Button onClick={() => cambiarPagina("/Login")}variant="light">Login</Button>
             </div>
         </div>
     )
