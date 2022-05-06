@@ -30,9 +30,8 @@
 }
 
 .imagenUsuario {
-    width: 10em;
-    height: 10em;
-    border-radius: 50%;
+    width: 15em;
+    height: 15em;
     align-self: center;
 }
 
