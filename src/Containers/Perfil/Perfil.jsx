@@ -34,21 +34,21 @@ const Perfil = (props) => {
                         } />
                     </div>
                     <div className='camposUsuario'>
-                        <div className="flex">Correo Electrónico:&nbsp;&nbsp;
-                            {props.credenciales.usuario.email}
+                        <div className="flex1">Correo Electrónico:&nbsp;&nbsp;
+                            <p>{props.credenciales.usuario.email}</p>
                         </div>
                         <div className="flex1">Fecha de nacimiento:&nbsp;&nbsp;
-                            {new Date(props.credenciales.usuario.edad).toLocaleDateString()}
+                            <p>{new Date(props.credenciales.usuario.edad).toLocaleDateString()}</p>
                         </div>
-                        <div className="flex2">Cuenta de Discord:&nbsp;&nbsp;
-                            {props.credenciales.usuario.discord}
+                        <div className="flex1">Cuenta de Discord:&nbsp;&nbsp;
+                            <p>{props.credenciales.usuario.discord}</p>
                         </div>
-                        <div className="flex3">Juego Favorito:&nbsp;&nbsp;
-                            {props.credenciales.usuario.juego}
+                        <div className="flex1">Juego Favorito:&nbsp;&nbsp;
+                            <p>{props.credenciales.usuario.juego}</p>
                         </div>
                     </div>
-                    <div className='botonPerfil'>
-                        <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="secondary">Editar Perfil</Button>{' '}
+                    <div className='botonPerfil' >
+                        <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="secondary" size="lg">Editar Perfil</Button>
                     </div>
                 </div>
             </div>
