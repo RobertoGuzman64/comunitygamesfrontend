@@ -18,7 +18,7 @@ const Login = (props) => {
     const [datosUsuario, setDatosUsuario] = useState({ email: '', clave: '' });
     const [msgError, setMsgError] = useState('');
     const [msgError2, setMsgError2] = useState('');
-    
+
     // Funciones handlers
     const rellenarDatos = (e) => {
         setDatosUsuario({ ...datosUsuario, [e.target.name]: e.target.value })
@@ -62,13 +62,25 @@ const Login = (props) => {
         <div className='paginaLogin'>
             <Header />
             <div className="contenidoLogin">
-                    <div className='inputsLogin'>
-                        <input className='input2' type="text" name="email" id="email" title="email" placeholder="Correo Electronico" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input2' type="password" name="clave" id="clave" title="clave" placeholder="Contraseña" autoComplete="off" onChange={(e) => { rellenarDatos(e); checkClave(e) }} />
-                        <Button onClick={() => Login()} variant="secondary" size="lg">
-                            Iniciar Sesión
-                        </Button>
-                    </div>
+                <div className='inputsLogin'>
+                    <input className='input2' type="text" name="email" id="email" title="email" placeholder="Correo Electronico" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                    <input className='input2' type="password" name="clave" id="clave" title="clave" placeholder="Contraseña" autoComplete="off" onChange={(e) => { rellenarDatos(e); checkClave(e) }} />
+                    <button onClick={(e) => {
+                        let input = document.getElementById('clave');
+                        if (input.type === 'password') {
+                            input.type = 'text'
+                            e.target.innerHTML = 'Esconder Contraseña'
+                        } else {
+                            input.type = 'password'
+                            e.target.innerHTML = 'Mostrar Contraseña'
+                        }
+                    }}>
+                        Mostrar Contraseña
+                    </button>
+                    <Button onClick={() => Login()} variant="secondary" size="lg">
+                        Iniciar Sesión
+                    </Button>
+                </div>
             </div>
             <Footer />
         </div>

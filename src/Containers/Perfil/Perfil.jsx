@@ -48,7 +48,7 @@ const Perfil = (props) => {
                         </div>
                     </div>
                     <div className='botonPerfil'>
-                        <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="outline-secondary">Editar Perfil</Button>{' '}
+                        <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="secondary">Editar Perfil</Button>{' '}
                     </div>
                 </div>
             </div>

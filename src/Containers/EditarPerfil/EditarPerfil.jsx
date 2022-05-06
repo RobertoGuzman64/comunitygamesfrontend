@@ -72,6 +72,7 @@ const EditarPerfil = (props) => {
             <Header />
             <div className='contenidoEditarPerfil'>
                 <div className='inputsEditarPerfil'>
+                    <p className='titulo'>Editar Perfil !</p>
                     <input className='input' type="text" name="nick" id="nick" title="nick" placeholder={`Nick:  ${props.credenciales.usuario.nick}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input' type="text" name="nombre" id="nombre" title="nombre" placeholder={`Nombre:  ${props.credenciales.usuario.nombre}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder={`Apellidos:  ${props.credenciales.usuario.apellidos}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
@@ -79,13 +80,13 @@ const EditarPerfil = (props) => {
                     <input className='input' type="text" name="discord" id="discord" title="discord" placeholder={`Cuenta de Discord:  ${props.credenciales.usuario.discord}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input' type="text" name="juego" id="juego" title="juego" placeholder={`Juego Favorito:  ${props.credenciales.usuario.juego}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <div className='botonesEditarPerfil'>
-                        <Button onClick={() => cambiarPagina("/BorrarUsuario")} variant="outline-secondary" size="lg">
-                            ir a Eliminar Cuenta
-                        </Button><br></br>
                         <Button onClick={() => cambiarPagina("/EditarClave")} variant="outline-secondary" size="lg">
-                            ir a Editar Contraseña
+                            Editar Contraseña
                         </Button><br></br>
-                        <Button onClick={() => actualizaUsuario()} variant="outline-secondary" size="lg">
+                        <Button onClick={() => cambiarPagina("/BorrarUsuario")} variant="outline-secondary" size="lg">
+                            Eliminar Cuenta
+                        </Button><br></br>
+                        <Button onClick={() => actualizaUsuario()} variant="secondary" size="lg">
                             Actualizar Perfil
                         </Button>
                     </div>

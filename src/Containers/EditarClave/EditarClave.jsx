@@ -21,18 +21,14 @@ const EditarClave = (props) => {
         }, 500);
     }
 
-    const [datosUsuario, setDatosUsuario] = useState({
-        nick: props.credenciales.usuario.nick,
-        nombre: props.credenciales.usuario.nombre,
-        apellidos: props.credenciales.usuario.apellidos,
-        edad: props.credenciales.usuario.edad,
-        discord: props.credenciales.usuario.discord,
-        juego: props.credenciales.usuario.juego,
+    const [contrasena, setContrasena] = useState({
+        claveAnterior: undefined,
+        claveNueva: undefined,
     })
 
     const rellenarDatos = (e) => {
-        setDatosUsuario({
-            ...datosUsuario,
+        setContrasena({
+            ...contrasena,
             [e.target.name]: e.target.value
         })
     };
@@ -43,46 +39,66 @@ const EditarClave = (props) => {
         };
     })
 
-    const actualizaUsuario = async () => {
+    useEffect(() => {
+    }, [props.credenciales.usuario])
+
+    const actualizaClave = async () => {
         let body = {
-            id: props.credenciales.usuario.id,
-            nick: datosUsuario.nick,
-            nombre: datosUsuario.nombre,
-            apellidos: datosUsuario.apellidos,
-            edad: datosUsuario.edad,
-            discord: datosUsuario.discord,
-            juego: datosUsuario.juego,
+            claveAnterior: contrasena.claveAnterior,
+            claveNueva: contrasena.claveNueva
         }
-        console.log("papayote", body)
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
-            let resultado = await axios.put(`${baseURL}/usuarios/${props.credenciales.usuario.id}/clave`, body, config);
-            if (resultado) {
-                props.dispatch({ type: MODIFICAR_CREDENCIALES, payload: datosUsuario });
+            // Actualizamos los datos de Usuario en nuestra base de datos.
+            let respuesta = await axios.put(`${baseURL}/usuarios/${props.credenciales.usuario.id}/clave`, body, config);
+            if (respuesta) {
+                // Guardamos los datos en Redux.
                 navigate('/');
             }
         } catch (error) {
             console.log(error)
         }
     }
+
     return (
         <div className='paginaEditarClave'>
             <Header />
             <div className='contenidoEditarClave'>
                 <div className='inputsEditarClave'>
-                    <input className='input' type="text" name="nick" id="nick" title="nick" placeholder={`Nick:  ${props.credenciales.usuario.nick}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                    <input className='input' type="text" name="nombre" id="nombre" title="nombre" placeholder={`Nombre:  ${props.credenciales.usuario.nombre}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                    <input className='input' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder={`Apellidos:  ${props.credenciales.usuario.apellidos}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                    <input className='input' type="date" name="edad" id="edad" title="edad" placeholder={`Fecha de Nacimiento:  ${props.credenciales.usuario.edad}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                    <input className='input' type="text" name="discord" id="discord" title="discord" placeholder={`Cuenta de Discord:  ${props.credenciales.usuario.discord}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                    <input className='input' type="text" name="juego" id="juego" title="juego" placeholder={`Juego Favorito:  ${props.credenciales.usuario.juego}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                    <p className='titulo'>Editar Contraseña !</p>
+                    <input className='input' type="password" name="claveAnterior" id="claveAnterior" title="claveAnterior" placeholder={`Contraseña Actual :`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                    <button onClick={(e) => {
+                        let input = document.getElementById('claveAnterior');
+                        if (input.type === 'password') {
+                            input.type = 'text'
+                            e.target.innerHTML = 'Esconder Contraseña'
+                        } else {
+                            input.type = 'password'
+                            e.target.innerHTML = 'Mostrar Contraseña'
+                        }
+                    }}>
+                        Mostrar Contraseña
+                    </button>
+                    <input className='input' type="password" name="claveNueva" id="claveNueva" title="claveNueva" placeholder={`Contraseña Nueva :`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                    <button onClick={(e) => {
+                        let input = document.getElementById('claveNueva');
+                        if (input.type === 'password') {
+                            input.type = 'text'
+                            e.target.innerHTML = 'Esconder Contraseña'
+                        } else {
+                            input.type = 'password'
+                            e.target.innerHTML = 'Mostrar Contraseña'
+                        }
+                    }}>
+                        Mostrar Contraseña
+                    </button>
                     <div className='botonesEditarClave'>
                         <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="outline-secondary" size="lg">
                             Volver
                         </Button>
-                        <Button onClick={() => actualizaUsuario()} variant="outline-secondary" size="lg">
+                        <Button onClick={() => actualizaClave()} variant="secondary" size="lg">
                             Cambiar Contraseña
                         </Button>
                     </div>
