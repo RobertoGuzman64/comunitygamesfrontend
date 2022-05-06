@@ -1,0 +1,90 @@
+.paginaPerfil {
+    background: linear-gradient(90deg, rgba(74, 74, 107, 1) 18%, rgba(69, 68, 68, 1) 43%, rgba(70, 67, 67, 1) 61%, rgba(97, 90, 90, 1) 80%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenidoPerfil {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2em;
+}
+
+.datosUsuario {
+    background-color: #272b30;
+    height: 48em;
+    width: 45em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.datosUsuario_nombre{
+    display: flex;
+    flex-direction: column;
+}
+
+.imagenUsuario {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.camposUsuario {
+    display: flex;
+    flex-direction: column;
+    text-align:center;
+    margin:auto;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: bold;
+}
+
+.flex1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 2em;
+}
+
+.flex2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 4.4em;
+}
+
+.flex3 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 6.9em;
+}
+
+.botonPerfil{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-weight: bold;
+}

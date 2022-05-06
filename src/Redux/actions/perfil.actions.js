@@ -1,0 +1,1 @@
+export const DATOS_PERFIL = 'datos_perfil';
