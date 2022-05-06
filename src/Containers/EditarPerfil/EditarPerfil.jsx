@@ -79,13 +79,13 @@ const EditarPerfil = (props) => {
                     <input className='input' type="text" name="discord" id="discord" title="discord" placeholder={`Cuenta de Discord:  ${props.credenciales.usuario.discord}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input' type="text" name="juego" id="juego" title="juego" placeholder={`Juego Favorito:  ${props.credenciales.usuario.juego}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <div className='botonesEditarPerfil'>
-                    <Button onClick={() => cambiarPagina("/BorrarUsuario")} variant="secondary" size="lg">
+                        <Button onClick={() => cambiarPagina("/BorrarUsuario")} variant="outline-secondary" size="lg">
                             ir a Eliminar Cuenta
                         </Button><br></br>
-                        <Button onClick={() => cambiarPagina("/EditarClave")} variant="secondary" size="lg">
+                        <Button onClick={() => cambiarPagina("/EditarClave")} variant="outline-secondary" size="lg">
                             ir a Editar Contraseña
                         </Button><br></br>
-                        <Button onClick={() => actualizaUsuario()} variant="secondary" size="lg">
+                        <Button onClick={() => actualizaUsuario()} variant="outline-secondary" size="lg">
                             Actualizar Perfil
                         </Button>
                     </div>
