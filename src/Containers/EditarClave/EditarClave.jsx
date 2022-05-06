@@ -51,10 +51,8 @@ const EditarClave = (props) => {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
-            // Actualizamos los datos de Usuario en nuestra base de datos.
             let respuesta = await axios.put(`${baseURL}/usuarios/${props.credenciales.usuario.id}/clave`, body, config);
             if (respuesta) {
-                // Guardamos los datos en Redux.
                 navigate('/');
             }
         } catch (error) {
