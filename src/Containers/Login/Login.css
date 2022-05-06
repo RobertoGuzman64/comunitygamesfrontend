@@ -14,7 +14,7 @@
 }
 
 .inputsLogin {
-    border-radius: 2px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     background-color: #272b30;
