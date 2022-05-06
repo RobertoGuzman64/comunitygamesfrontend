@@ -6,6 +6,16 @@
     align-items: center;
 }
 
+.nick {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .botonesHeader {
     margin-right: 1em;
     color: blanchedalmond;
