@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { baseURL } from '../../utiles';
 import './Login.css';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
-//REDUX...
+import Button from 'react-bootstrap/Button'
+// Axios
+import axios from 'axios';
+import { baseURL } from '../../utiles';
+// Redux
 import { connect } from 'react-redux';
 import { LOGIN } from '../../redux/actions';
-import Button from 'react-bootstrap/Button'
+
 
 
 const Login = (props) => {

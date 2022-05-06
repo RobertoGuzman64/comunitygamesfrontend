@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './Registro.css';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
-import { baseURL } from '../../utiles';
 import Button from 'react-bootstrap/Button'
+// Axios
+import axios from 'axios';
+import { baseURL } from '../../utiles';
+
 
 
 const Registro = () => {

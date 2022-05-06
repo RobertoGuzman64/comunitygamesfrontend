@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// axios
+import './EditarPerfil.css';
+import Header from '../../Components/Header/Header';
+import Footer from '../../Components/Footer/Footer';
+import Button from 'react-bootstrap/Button'
+// Axios
 import axios from 'axios';
 import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
 import { MODIFICAR_CREDENCIALES } from '../../redux/actions';
 
-import './EditarPerfil.css';
-import Header from '../../Components/Header/Header';
-import Footer from '../../Components/Footer/Footer';
-import Button from 'react-bootstrap/Button'
+
 
 const EditarPerfil = (props) => {
     let navigate = useNavigate();

@@ -1,9 +1,10 @@
 import React, {} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
+import Button from 'react-bootstrap/Button'
+// Redux
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/actions';
-import Button from 'react-bootstrap/Button'
 
 const Header = (props) => {
     let navigate = useNavigate();

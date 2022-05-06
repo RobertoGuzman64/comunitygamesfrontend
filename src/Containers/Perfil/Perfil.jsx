@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// Redux
-import { connect } from 'react-redux';
 import './Perfil.css';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import Button from 'react-bootstrap/Button'
+// Redux
+import { connect } from 'react-redux';
 
 const Perfil = (props) => {
     let navigate = useNavigate();
