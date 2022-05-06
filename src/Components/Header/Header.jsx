@@ -17,6 +17,7 @@ const Header = () => {
                 <h1>Comunity Games</h1>
             </div>
             <div className='botonesHeader'>
+                <Button onClick={() => cambiarPagina("/")}variant="outline-secondary">Home</Button>{' '}
                 <Button onClick={() => cambiarPagina("/Comunidades")}variant="outline-secondary">Comunidades</Button>{' '}
                 <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}
                 <Button onClick={() => cambiarPagina("/Registro")}variant="outline-secondary">Registro</Button>{' '}

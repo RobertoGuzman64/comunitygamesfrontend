@@ -1,0 +1,38 @@
+.paginaRegistro {
+    background: linear-gradient(90deg, rgba(74,74,107,1) 18%, rgba(69,68,68,1) 43%, rgba(70,67,67,1) 61%, rgba(97,90,90,1) 80%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenidoRegistro{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputsRegistro {
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    background-color: #272b30;
+    height: 48em;
+    width: 45em;
+    align-items: center;
+    justify-content: center;
+}
+
+.input{
+    all:unset;
+    text-align: left;
+    border: 2px solid #611B5E;
+    border-bottom: 2px 2px;
+    padding: 0.50em;
+    width: 80%;
+    margin-top: 1em;
+    margin-block-end: 1em;
+    background-color: #555a402d;
+    color: #fff;
+}
