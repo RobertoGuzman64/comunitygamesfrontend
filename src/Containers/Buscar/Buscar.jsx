@@ -16,7 +16,6 @@ import moment from 'moment';
 import 'moment/locale/es';
 
 const Buscar = (props) => {
-    let resultados;
     let navigate = useNavigate();
     const [genero, setGenero] = useState("");
 
@@ -24,20 +23,14 @@ const Buscar = (props) => {
         props.dispatch({ type: ESTADO_INICIAL });
     }, []);
 
-    useEffect(() => {
-        if (props.credenciales.token === '') {
-            navigate("/login");
-        }
-    })
-
     const manejador = (ev) => {
         setGenero(ev.target.value);
     }
 
     const busquedaPorGenero = async () => {
         try {
-            resultados = await axios.get(`${baseURL}/comunidades/genero/${genero}`);
-            props.dispatch({ type: GENERO_COMUNIDAD, payload: resultados.data });
+            let resultado = await axios.get(`${baseURL}/comunidades/genero/${genero}`);
+            props.dispatch({ type: GENERO_COMUNIDAD, payload: resultado.data });
         } catch (error) {
             console.log(error);
         }
