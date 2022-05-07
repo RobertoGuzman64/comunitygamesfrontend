@@ -31,7 +31,6 @@ const Comunidades = (props) => {
     const traerComunidades = async () => {
         try {
             let resultado = await axios.get(`${baseURL}/comunidades`);
-            console.log(resultado.data);
             setComunidades(resultado.data);
         } catch (error) {
             console.log(error)
@@ -58,7 +57,7 @@ const Comunidades = (props) => {
                                     <Card.Body>
                                         <Card.Title>{comunidad.titulo}</Card.Title>
                                         <Card.Text>Genero : {comunidad.genero}</Card.Text>
-                                        <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).fromNow()}</Card.Text>
+                                        <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
                                         <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
                                         <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
                                         <Button onClick={() => verComunidad(comunidad)} variant="secondary">Ver Comunidad</Button>

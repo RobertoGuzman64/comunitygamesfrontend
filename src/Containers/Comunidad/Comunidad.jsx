@@ -36,7 +36,7 @@ const Comunidad = (props) => {
                         <Card.Body>
                             <Card.Title>{props.datosComunidad.titulo}</Card.Title>
                             <Card.Text>Genero : {props.datosComunidad.genero}</Card.Text>
-                            <Card.Text>Fecha de Lanzamiento : {moment(props.datosComunidad.fecha).fromNow()}</Card.Text>
+                            <Card.Text>Fecha de Lanzamiento : {moment(props.datosComunidad.fecha).format('LL')}</Card.Text>
                             <Card.Text>Popularidad : {props.datosComunidad.popularidad}</Card.Text>
                             <Card.Text>Descripción : {props.datosComunidad.descripcion}</Card.Text>
                             <Button  variant="secondary">Unirse a la Comunidad</Button>
