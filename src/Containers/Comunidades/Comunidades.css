@@ -5,3 +5,10 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.contenidoComunidades {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}

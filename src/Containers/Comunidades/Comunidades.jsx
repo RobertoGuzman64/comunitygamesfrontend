@@ -46,11 +46,11 @@ const Comunidades = (props) => {
     return (
         <div className='paginaComunidades'>
             <Header />
-            <div className="contenidoLogin">
+            <div className="contenidoComunidades">
                 {
                     comunidades.map((comunidad) => {
                         return (
-                            <div className="cardComunidad" key={comunidad.id}>
+                            <div className="cardsComunidad" key={comunidad.id}>
                                 <Card style={{ width: '30rem' }} >
                                     <Card.Img variant="top" src={
                                         comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
