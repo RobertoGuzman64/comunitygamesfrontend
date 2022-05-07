@@ -54,7 +54,6 @@ const EditarPerfil = (props) => {
             discord: datosUsuario.discord,
             juego: datosUsuario.juego,
         }
-        console.log("papayote", body)
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
@@ -88,7 +87,7 @@ const EditarPerfil = (props) => {
                             Eliminar Cuenta
                         </Button><br></br>
                         <Button onClick={() => actualizaUsuario()} variant="secondary" size="lg">
-                            Actualizar Perfil
+                            Guardar Cambios
                         </Button>
                     </div>
                 </div>
