@@ -6,6 +6,7 @@ import Perfil from './Containers/Perfil/Perfil';
 import EditarPerfil from './Containers/EditarPerfil/EditarPerfil';
 import EditarClave from './Containers/EditarClave/EditarClave';
 import BorrarUsuario from './Containers/BorrarUsuario/BorrarUsuario';
+import Comunidades from './Containers/Comunidades/Comunidades';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/EditarPerfil" element={<EditarPerfil />} />
           <Route path="/EditarClave" element={<EditarClave />} />
           <Route path="/BorrarUsuario" element={<BorrarUsuario />} />
+          <Route path="/Comunidades" element={<Comunidades />} />
         </Routes>
       </BrowserRouter>
     </div>
