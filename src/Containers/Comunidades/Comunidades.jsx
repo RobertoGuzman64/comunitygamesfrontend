@@ -1,48 +1,79 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Comunidades.css';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+// Axios
+import axios from 'axios';
+import { baseURL } from '../../utiles';
+// Redux
+import { connect } from 'react-redux';
+import { DATOS_COMUNIDAD } from '../../redux/actions';
+// Moment
+import moment from 'moment';
+import 'moment/locale/es';
 
-const Comunidades = () => {
+const Comunidades = (props) => {
+
+    const [comunidades, setComunidades] = useState([]);
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        traerComunidades();
+        moment.locale('es');
+    }, []);
+
+    useEffect(() => {
+    }, [comunidades]);
+
+    const traerComunidades = async () => {
+        try {
+            let resultado = await axios.get(`${baseURL}/comunidades`);
+            console.log(resultado.data);
+            setComunidades(resultado.data);
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    const verComunidad = async (comunidad) => {
+        await props.dispatch({ type: DATOS_COMUNIDAD, payload: comunidad });
+        navigate("/Comunidad");
+    };
+
     return (
         <div className='paginaComunidades'>
             <Header />
             <div className="contenidoLogin">
-                <Card style={{ width: '45rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                        </Card.Text>
-                        <Button variant="secondary">Ver Comunidad</Button>
-                    </Card.Body>
-                </Card>
+                {
+                    comunidades.map((comunidad) => {
+                        return (
+                            <div className="cardComunidad" key={comunidad.id}>
+                                <Card style={{ width: '30rem' }} >
+                                    <Card.Img variant="top" src={
+                                        comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
+                                    } />
+                                    <Card.Body>
+                                        <Card.Title>{comunidad.titulo}</Card.Title>
+                                        <Card.Text>Genero : {comunidad.genero}</Card.Text>
+                                        <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).fromNow()}</Card.Text>
+                                        <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
+                                        <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
+                                        <Button onClick={() => verComunidad(comunidad)} variant="secondary">Ver Comunidad</Button>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        )
+                    })
+                }
             </div>
             <Footer />
         </div>
     )
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default Comunidades;
+export default connect((state) => ({
+    credenciales: state.credenciales
+}))(Comunidades);
