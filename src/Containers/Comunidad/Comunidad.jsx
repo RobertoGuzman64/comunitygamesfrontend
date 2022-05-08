@@ -5,9 +5,6 @@ import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-// Axios
-import axios from 'axios';
-import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
 // Moment
@@ -18,12 +15,18 @@ import 'moment/locale/es';
 const Comunidad = (props) => {
     let navigate = useNavigate();
 
+    const cambiarPagina = (pagina) => {
+        setTimeout(() => {
+            navigate(pagina)
+        }, 500);
+    }
+
     useEffect(()=> {
         if(props.datosComunidad?.id === undefined){
             navigate("/");
         }
     });
-
+    
     return (
         <div className='paginaComunidad'>
             <Header />
@@ -39,7 +42,7 @@ const Comunidad = (props) => {
                             <Card.Text>Fecha de Lanzamiento : {moment(props.datosComunidad.fecha).format('LL')}</Card.Text>
                             <Card.Text>Popularidad : {props.datosComunidad.popularidad}</Card.Text>
                             <Card.Text>Descripción : {props.datosComunidad.descripcion}</Card.Text>
-                            <Button  variant="secondary">Unirse a la Comunidad</Button>
+                            <Button onClick={() => cambiarPagina("/Miembro")} variant="secondary">Unirse a la Comunidad</Button>
                         </Card.Body>
                     </Card>
                 </div>
