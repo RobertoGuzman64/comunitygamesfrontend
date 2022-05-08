@@ -5,6 +5,9 @@ import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+// Axios
+import axios from 'axios';
+import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
 // Moment
@@ -14,19 +17,43 @@ import 'moment/locale/es';
 
 const Comunidad = (props) => {
     let navigate = useNavigate();
-
+    const [miembros, setMiembros] = useState([]);
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
             navigate(pagina)
         }, 500);
     }
 
+    useEffect(() => {
+        verMiembros();
+        moment.locale('es');
+    }, []);
+
+    useEffect(() => {
+        if (props.credenciales.token === '') {
+            navigate('/');
+        };
+    })
+
     useEffect(()=> {
         if(props.datosComunidad?.id === undefined){
             navigate("/");
         }
     });
-    
+
+    const verMiembros = async () => {
+        let config = {
+            headers: { Authorization: `Bearer ${props.credenciales.token}` }
+        };
+        try {
+            let resultado = await axios.get(`${baseURL}/miembros/comunidad/${props.datosComunidad.id}`, config);
+            setMiembros(resultado.data);
+            console.log("Estos son los resultados",resultado.data);
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
     return (
         <div className='paginaComunidad'>
             <Header />
@@ -38,10 +65,9 @@ const Comunidad = (props) => {
                         } />
                         <Card.Body>
                             <Card.Title>{props.datosComunidad.titulo}</Card.Title>
-                            <Card.Text>Genero : {props.datosComunidad.genero}</Card.Text>
-                            <Card.Text>Fecha de Lanzamiento : {moment(props.datosComunidad.fecha).format('LL')}</Card.Text>
-                            <Card.Text>Popularidad : {props.datosComunidad.popularidad}</Card.Text>
-                            <Card.Text>Descripción : {props.datosComunidad.descripcion}</Card.Text>
+                            <Card.Text>Número de Miembros : {}</Card.Text>
+                            <Card.Text>Nombres : {}</Card.Text>
+                            <Card.Text>Avatares : {}</Card.Text>
                             <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
                             <Button onClick={() => cambiarPagina("/Miembro")} variant="secondary">Unirse a la Comunidad</Button>
                         </Card.Body>
