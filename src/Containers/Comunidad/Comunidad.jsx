@@ -18,6 +18,7 @@ import 'moment/locale/es';
 const Comunidad = (props) => {
     let navigate = useNavigate();
     const [miembros, setMiembros] = useState([]);
+
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
             navigate(pagina)
@@ -31,12 +32,12 @@ const Comunidad = (props) => {
 
     useEffect(() => {
         if (props.credenciales.token === '') {
-            navigate('/');
+            navigate('/login');
         };
     })
 
-    useEffect(()=> {
-        if(props.datosComunidad?.id === undefined){
+    useEffect(() => {
+        if (props.datosComunidad?.id === undefined) {
             navigate("/");
         }
     });
@@ -48,7 +49,6 @@ const Comunidad = (props) => {
         try {
             let resultado = await axios.get(`${baseURL}/miembros/comunidad/${props.datosComunidad.id}`, config);
             setMiembros(resultado.data);
-            console.log("Estos son los resultados",resultado.data);
         } catch (error) {
             console.log(error)
         }
@@ -59,15 +59,23 @@ const Comunidad = (props) => {
             <Header />
             <div className="contenidoComunidad">
                 <div className="cardComunidad">
-                    <Card style={{ width: '50rem' }} >
+                    <Card style={{ width: '50rem', height: '50rem'}} >
                         <Card.Img variant="top" src={
                             props.datosComunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : props.datosComunidad.imagen
                         } />
                         <Card.Body>
-                            <Card.Title>{props.datosComunidad.titulo}</Card.Title>
-                            <Card.Text>Número de Miembros : {}</Card.Text>
-                            <Card.Text>Nombres : {}</Card.Text>
-                            <Card.Text>Avatares : {}</Card.Text>
+                            <Card.Title>Miembros de esta Comunidad{}</Card.Title>
+                            {
+                                miembros.map((miembro) => {
+                                    return (
+                                        <div className='datosMiembros' key={miembro.id}>
+                                            <Card.Text>{miembro.nick}</Card.Text>
+                                            <img className='avatarMiembro' src={miembro.avatar} alt={miembro}/>
+                                            <Card.Text>Miembro de la comunidad desde : {moment(miembro.fecha).format('LL')}</Card.Text>
+                                        </div>
+                                    )
+                                })
+                            }
                             <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
                             <Button onClick={() => cambiarPagina("/Miembro")} variant="secondary">Unirse a la Comunidad</Button>
                         </Card.Body>
