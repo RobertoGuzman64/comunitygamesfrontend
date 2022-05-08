@@ -11,17 +11,11 @@ import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
 // Moment
-import moment from 'moment';
 import 'moment/locale/es';
 
 
 const Miembro = (props) => {
     let navigate = useNavigate();
-
-    const [credenciales, setCredenciales] = useState({
-        token: props.credenciales.token,
-        usuario: props.credenciales.usuario,
-    });
 
     const [datosUsuario, setDatosUsuario] = useState({
         motivo: "",
@@ -48,7 +42,7 @@ const Miembro = (props) => {
         let body = {
             comunidad_id: props.datosComunidad.id,
             usuario_id: props.credenciales.usuario.id,
-            nick: credenciales.usuario.nick,
+            nick: props.credenciales.usuario.nick,
             motivo: datosUsuario.motivo,
             avatar: datosUsuario.avatar,
             fecha: Date.now(),
@@ -58,7 +52,7 @@ const Miembro = (props) => {
         };
         try {
             let respuesta = await axios.post(`${baseURL}/miembros`, body, config);
-            console.log(respuesta);
+            console.log(respuesta.data);
             navigate("/Comunidad");
         } catch (error) {
             console.log(error)

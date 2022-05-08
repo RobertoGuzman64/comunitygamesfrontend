@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 import Header from '../../Components/Header/Header';
@@ -24,17 +24,6 @@ const Registro = () => {
         juego: "",
     });
 
-    // const [msgError, setMsgError] = useState("");
-    // //useEffect
-
-    useEffect(() => {
-        //se ejecuta la primera vez que se ejecuta tan solamente
-    }, []);
-
-    useEffect(() => {
-        //se ejecuta cada vez que se actualiza CUALQUIER HOOK  
-    })
-
     const rellenarDatos = (e) => {
         setDatosUsuario({
             ...datosUsuario,
@@ -55,8 +44,9 @@ const Registro = () => {
         }
         try {
             let resultado = await axios.post(`${baseURL}/usuarios`, body);
+            console.log(resultado.data);
             setTimeout(() => {
-                navigate("/");
+                navigate("/login");
             }, 500);
         } catch (error) {
             console.log(error, 'error');
