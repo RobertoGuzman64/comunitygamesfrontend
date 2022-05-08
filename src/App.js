@@ -9,6 +9,7 @@ import BorrarUsuario from './Containers/BorrarUsuario/BorrarUsuario';
 import Comunidades from './Containers/Comunidades/Comunidades';
 import Comunidad from './Containers/Comunidad/Comunidad';
 import Buscar from './Containers/Buscar/Buscar';
+import Miembro from './Containers/Miembro/Miembro';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Comunidades" element={<Comunidades />} />
           <Route path="/Comunidad" element={<Comunidad />} />
           <Route path="/Buscar" element={<Buscar />} />
+          <Route path="/Miembro" element={<Miembro />} />
         </Routes>
       </BrowserRouter>
     </div>

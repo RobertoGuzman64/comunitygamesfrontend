@@ -1,0 +1,61 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Miembro.css';
+import Header from '../../Components/Header/Header';
+import Footer from '../../Components/Footer/Footer';
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+// Redux
+import { connect } from 'react-redux';
+// Moment
+import moment from 'moment';
+import 'moment/locale/es';
+
+
+const Miembro = (props) => {
+    let navigate = useNavigate();
+
+    const [miembro, setMiembro] = useState(props.datosMiembro);
+
+    const cambiarPagina = (pagina) => {
+        setTimeout(() => {
+            navigate(pagina)
+        }, 500);
+    }
+
+    useEffect(()=> {
+        if(props.datosComunidad?.id === undefined){
+            navigate("/");
+        }
+    });
+
+    return (
+        <div className='paginaMiembro'>
+            <Header />
+            <div className="contenidoMiembro">
+                <div className="cardMiembro">
+                    <Card style={{ width: '40rem' }} >
+                        <Card.Img variant="top" src={
+                            props.datosComunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : props.datosComunidad.imagen
+                        } />
+                        <Card.Body>
+                            <Card.Title>{props.datosComunidad.titulo}</Card.Title>
+                            <Card.Text>Genero : {props.datosComunidad.genero}</Card.Text>
+                            <Card.Text>Fecha de Lanzamiento : {moment(props.datosComunidad.fecha).format('LL')}</Card.Text>
+                            <Card.Text>Popularidad : {props.datosComunidad.popularidad}</Card.Text>
+                            <Card.Text>Descripción : {props.datosComunidad.descripcion}</Card.Text>
+                            <Button onClick={() => cambiarPagina("/Miembro")} variant="secondary">Unirse a la Comunidad</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
+            </div>
+            <Footer />
+        </div>
+    )
+}
+
+
+export default connect((state) => ({
+    credenciales: state.credenciales,
+    datosComunidad: state.datosComunidad.comunidad
+}))(Miembro);
