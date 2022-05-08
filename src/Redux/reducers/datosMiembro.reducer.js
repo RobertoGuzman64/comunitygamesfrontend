@@ -7,8 +7,9 @@ const initialState = {
 
 const datosMiembroReducer = (state = initialState, action) => {
     switch (action.type) {
+
         case DATOS_MIEMBRO:
-            return {...state, miembro: action.payload};
+            return { ...state, miembro: action.payload };
 
         case MIEMBROS_COMUNIDAD:
             return {...state, miembros: action.payload};
