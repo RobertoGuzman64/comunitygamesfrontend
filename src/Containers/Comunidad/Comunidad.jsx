@@ -42,6 +42,7 @@ const Comunidad = (props) => {
                             <Card.Text>Fecha de Lanzamiento : {moment(props.datosComunidad.fecha).format('LL')}</Card.Text>
                             <Card.Text>Popularidad : {props.datosComunidad.popularidad}</Card.Text>
                             <Card.Text>Descripción : {props.datosComunidad.descripcion}</Card.Text>
+                            <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
                             <Button onClick={() => cambiarPagina("/Miembro")} variant="secondary">Unirse a la Comunidad</Button>
                         </Card.Body>
                     </Card>
