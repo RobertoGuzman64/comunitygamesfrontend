@@ -10,6 +10,7 @@ import Comunidades from './Containers/Comunidades/Comunidades';
 import Comunidad from './Containers/Comunidad/Comunidad';
 import Buscar from './Containers/Buscar/Buscar';
 import Miembro from './Containers/Miembro/Miembro';
+import Chat from './Containers/Chat/Chat';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/Comunidad" element={<Comunidad />} />
           <Route path="/Buscar" element={<Buscar />} />
           <Route path="/Miembro" element={<Miembro />} />
+          <Route path="/Chat" element={<Chat />} />
         </Routes>
       </BrowserRouter>
     </div>
