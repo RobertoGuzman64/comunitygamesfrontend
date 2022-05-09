@@ -32,16 +32,18 @@ const Comunidad = (props) => {
 
     useEffect(() => {
         if (props.credenciales.token === '') {
-            navigate('/login');
-        };
+            navigate('/Login');
+        }else if(props.datosComunidad?.id === undefined){
+            navigate("/Comunidades");
+        }
     })
-
+/*
     useEffect(() => {
         if (props.datosComunidad?.id === undefined) {
             navigate("/");
         }
     });
-
+*/
     const verMiembros = async () => {
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
@@ -71,7 +73,7 @@ const Comunidad = (props) => {
                                         <div className='datosMiembros' key={miembro.id}>
                                             <Card.Text>{miembro.nick}</Card.Text>
                                             <img className='avatarMiembro' src={miembro.avatar} alt={miembro}/>
-                                            <Card.Text>Miembro de la comunidad desde : {moment(miembro.fecha).format('LL')}</Card.Text>
+                                            <Card.Text>Miembro desde : {moment(miembro.fecha).format('LL')}</Card.Text>
                                         </div>
                                     )
                                 })
