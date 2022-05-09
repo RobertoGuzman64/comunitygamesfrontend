@@ -48,7 +48,7 @@ const BorrarUsuario = (props) => {
                     <div className='botonesEditarClave'>
                         <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="outline-secondary" size="lg">
                             Volver
-                        </Button>
+                        </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <Button onClick={() => borraUsuario()} variant="danger" size="lg">
                             Eliminar cuenta
                         </Button>

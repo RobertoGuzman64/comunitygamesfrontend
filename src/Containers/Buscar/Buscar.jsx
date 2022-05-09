@@ -44,7 +44,7 @@ const Buscar = (props) => {
         <div className='paginaBuscar'>
             <Header />
             <div className='buscador'>
-                <input className='input' placeholder="Busca el género que mas te guste" autoComplete="off" onChange={(ev) => manejador(ev)} />
+                <input className='inputBuscar' placeholder="Busca el género que mas te guste ejem..(guerra) (estrategia)" autoComplete="off" onChange={(ev) => manejador(ev)} />
                 <Button onClick={() => busquedaPorGenero()} variant="light">Buscar</Button>
             </div>
             <div className="contenidoBuscar">

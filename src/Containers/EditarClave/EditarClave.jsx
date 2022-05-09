@@ -95,7 +95,7 @@ const EditarClave = (props) => {
                     <div className='botonesEditarClave'>
                         <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="outline-secondary" size="lg">
                             Volver
-                        </Button>
+                        </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <Button onClick={() => actualizaClave()} variant="secondary" size="lg">
                             Cambiar Contraseña
                         </Button>

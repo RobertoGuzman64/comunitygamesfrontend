@@ -27,7 +27,7 @@
 .input2{
     all:unset;
     text-align: left;
-    border: 2px solid #fff;
+    border: 2px solid rgb(169, 169, 169);
     border-bottom: 2px 2px;
     padding: 0.50em;
     width: 80%;

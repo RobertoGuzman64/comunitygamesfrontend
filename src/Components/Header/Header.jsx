@@ -29,10 +29,10 @@ const Header = (props) => {
                     <h1>Comunity Games</h1>
                 </div>
                 <div className='botonesHeader'>
-                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Registro")} variant="outline-secondary">Registro</Button>{' '}
+                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Registro")} variant="outline-secondary">Registro</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Login")} variant="light">Login</Button>
                 </div>
             </div>
@@ -46,10 +46,10 @@ const Header = (props) => {
                 </div>
                 <div className='nick'>{props.credenciales?.usuario.nombre}{props.credenciales?.usuario.apellidos}</div>
                 <div className='botonesHeader'>
-                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Perfil")} variant="outline-secondary">Mi Perfil</Button>{' '}
+                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Perfil")} variant="outline-secondary">Mi Perfil</Button>{' '}&nbsp;
                     <Button onClick={() => logOut()} variant="light">Logout</Button>
                 </div>
             </div>
@@ -63,10 +63,10 @@ const Header = (props) => {
                 </div>
                 <div className='nick'>{props.credenciales?.usuario.nick}</div>
                 <div className='botonesHeader'>
-                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}
-                    <Button onClick={() => cambiarPagina("/Perfil")} variant="outline-secondary">Mi Perfil</Button>{' '}
+                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Perfil")} variant="outline-secondary">Mi Perfil</Button>{' '}&nbsp;&nbsp;
                     <Button onClick={() => logOut()} variant="light">Logout</Button>
                 </div>
             </div>

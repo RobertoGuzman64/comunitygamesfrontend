@@ -79,6 +79,7 @@ const Comunidad = (props) => {
                                 })
                             }
                             <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <Button onClick={() => cambiarPagina("/Miembro")} variant="secondary">Unirse a la Comunidad</Button>
                         </Card.Body>
                     </Card>
