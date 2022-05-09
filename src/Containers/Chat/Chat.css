@@ -12,3 +12,17 @@
     align-items: center;
     justify-content: center;
 }
+
+.inputChat {
+    all: unset;
+    text-align: left;
+    border: 2px solid rgb(169, 169, 169);
+    border-bottom: 2px 2px;
+    padding: 0.50em;
+    width: 80%;
+    margin-top: 1em;
+    color: rgb(169, 169, 169);
+    margin-left: 9.5em;
+}
+
+.inputChat::placeholder { color: rgb(255, 255, 255); font-weight: bold; }
