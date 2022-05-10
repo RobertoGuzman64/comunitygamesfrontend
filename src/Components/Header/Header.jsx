@@ -44,7 +44,7 @@ const Header = (props) => {
                     <div className='logo'></div>
                     <h1>Comunity Games</h1>
                 </div>
-                <div className='nick'>{props.credenciales?.usuario.nombre}{props.credenciales?.usuario.apellidos}</div>
+                <div className='nick'>{props.credenciales?.usuario.nombre}&nbsp;{props.credenciales?.usuario.apellidos}</div>
                 <div className='botonesHeader'>
                     <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}&nbsp;

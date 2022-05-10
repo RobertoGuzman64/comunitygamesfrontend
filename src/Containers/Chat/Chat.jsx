@@ -38,6 +38,7 @@ const Chat = (props) => {
         try {
             let resultado = await axios.get(`${baseURL}/mensajes/comunidad/${props.datosComunidad.id}`, config);
             setMensajes(resultado.data);
+            console.log('Resultados Consulta',resultado.data);
         } catch (error) {
             console.log(error)
         }
@@ -47,6 +48,7 @@ const Chat = (props) => {
         let body = {
             comunidad_id: props.datosComunidad.id,
             miembro_id: props.credenciales.usuario.id,
+            nick: props.credenciales.usuario.nick,
             mensaje: datosUsuario.mensaje,
             fecha: Date.now(),
             hora: moment().format('LT'),
@@ -74,7 +76,7 @@ const Chat = (props) => {
                                 mensajes.map((mensaje) => {
                                     return (
                                         <div className='chat' key={mensaje.id}>
-                                            <Card.Text style={{ color: '#fff' }}>{props.credenciales.usuario.nick}</Card.Text>
+                                            <Card.Text style={{ color: '#fff' }}>{mensaje.nick}</Card.Text>
                                             <Card.Text style={{ color: '#fff' }}>{mensaje.mensaje}</Card.Text>
                                             <Card.Text style={{ color: '#fff' }}>{moment(mensaje.fecha).format('LL')}</Card.Text>
                                             <Card.Text style={{ color: '#fff' }}>{mensaje.hora}</Card.Text>

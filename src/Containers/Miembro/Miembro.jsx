@@ -43,7 +43,6 @@ const Miembro = (props) => {
             comunidad_id: props.datosComunidad.id,
             usuario_id: props.credenciales.usuario.id,
             nick: props.credenciales.usuario.nick,
-            motivo: datosUsuario.motivo,
             avatar: datosUsuario.avatar,
             fecha: Date.now(),
         };
@@ -70,7 +69,6 @@ const Miembro = (props) => {
                         } />
                         <Card.Body>
                             <Card.Title>{props.datosComunidad.titulo}</Card.Title>
-                            <input className='inputMiembro' type="text" name="motivo" id="motivo" title="motivo" placeholder="Por que quieres Unirte ??" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                             <input className='inputMiembro' type="text" name="avatar" id="avatar" title="avatar" placeholder="Introduce la URL del avatar que mas te guste" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                             <Button onClick={() => crearMiembro()} variant="secondary">Unirse</Button>
                             <Button onClick={() => cambiarPagina('/Comunidad')} variant="outline-secondary">Volver</Button>
