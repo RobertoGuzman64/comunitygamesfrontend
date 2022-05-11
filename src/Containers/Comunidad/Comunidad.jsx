@@ -33,17 +33,11 @@ const Comunidad = (props) => {
     useEffect(() => {
         if (props.credenciales.token === '') {
             navigate('/Login');
-        }else if(props.datosComunidad?.id === undefined){
+        } else if (props.datosComunidad?.id === undefined) {
             navigate("/Comunidades");
         }
     })
-/*
-    useEffect(() => {
-        if (props.datosComunidad?.id === undefined) {
-            navigate("/");
-        }
-    });
-*/
+
     const verMiembros = async () => {
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
@@ -61,18 +55,18 @@ const Comunidad = (props) => {
             <Header />
             <div className="contenidoComunidad">
                 <div className="cardComunidad">
-                    <Card style={{ width: '50rem', height: '50rem'}} >
+                    <Card >
                         <Card.Img variant="top" src={
                             props.datosComunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : props.datosComunidad.imagen
                         } />
                         <Card.Body>
-                            <Card.Title>Miembros de esta Comunidad{}</Card.Title>
+                            <Card.Title>Miembros de esta Comunidad{ }</Card.Title>
                             {
                                 miembros.map((miembro) => {
                                     return (
                                         <div className='datosMiembros' key={miembro.id}>
                                             <Card.Text>{miembro.nick}</Card.Text>
-                                            <img className='avatarMiembro' src={miembro.avatar} alt={miembro}/>
+                                            <img className='avatarMiembro' src={miembro.avatar} alt={miembro} />
                                             <Card.Text>Miembro desde : {moment(miembro.fecha).format('LL')}</Card.Text>
                                         </div>
                                     )

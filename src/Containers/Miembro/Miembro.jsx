@@ -54,7 +54,7 @@ const Miembro = (props) => {
             console.log(respuesta.data);
             navigate("/Comunidad");
         } catch (error) {
-            console.log(error)
+            console.log(error.response.data);
         };
     }
 

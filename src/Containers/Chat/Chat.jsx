@@ -38,7 +38,6 @@ const Chat = (props) => {
         try {
             let resultado = await axios.get(`${baseURL}/mensajes/comunidad/${props.datosComunidad.id}`, config);
             setMensajes(resultado.data);
-            console.log('Resultados Consulta',resultado.data);
         } catch (error) {
             console.log(error)
         }
@@ -59,6 +58,7 @@ const Chat = (props) => {
         try {
             let respuesta = await axios.post(`${baseURL}/mensajes/miembro`, body, config);
             console.log(respuesta.data);
+            window.location.reload(true);
         } catch (error) {
             console.log(error)
         }
