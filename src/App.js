@@ -8,6 +8,7 @@ import EditarClave from './Containers/EditarClave/EditarClave';
 import BorrarUsuario from './Containers/BorrarUsuario/BorrarUsuario';
 import Comunidades from './Containers/Comunidades/Comunidades';
 import Comunidad from './Containers/Comunidad/Comunidad';
+import CrearComunidad from './Containers/CrearComunidad/CrearComunidad';
 import Buscar from './Containers/Buscar/Buscar';
 import Miembro from './Containers/Miembro/Miembro';
 import Chat from './Containers/Chat/Chat';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/BorrarUsuario" element={<BorrarUsuario />} />
           <Route path="/Comunidades" element={<Comunidades />} />
           <Route path="/Comunidad" element={<Comunidad />} />
+          <Route path="/CrearComunidad" element={<CrearComunidad />} />
           <Route path="/Buscar" element={<Buscar />} />
           <Route path="/Miembro" element={<Miembro />} />
           <Route path="/Chat" element={<Chat />} />
