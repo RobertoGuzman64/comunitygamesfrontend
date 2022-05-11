@@ -49,6 +49,7 @@ const Header = (props) => {
                     <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/CrearComunidad")} variant="outline-secondary">Crear Comunidad</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Perfil")} variant="outline-secondary">Mi Perfil</Button>{' '}&nbsp;
                     <Button onClick={() => logOut()} variant="light">Logout</Button>
                 </div>
