@@ -53,12 +53,12 @@ const Comunidad = (props) => {
         }
     };
 
-    const mostrarBoton = () => {
+    const mostrarBotones = () => {
         if (props.datosMiembro.length > 0) {
             for (let i = 0; i < props.datosMiembro.length; i++) {
                 if (props.datosMiembro[i].usuario_id === props.credenciales.usuario.id) {
                     return (
-                        <></>
+                        <Button onClick={() => cambiarPagina("/Chat")} variant="secondary">Chat de la Comunidad</Button>
                     )
                 }
             }
@@ -95,10 +95,9 @@ const Comunidad = (props) => {
                                 })
                             }
                             <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {mostrarBoton()}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <Button onClick={() => cambiarPagina("/Chat")} variant="secondary">Chat de la Comunidad</Button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {mostrarBotones()}
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </Card.Body>
                     </Card>
                 </div>
