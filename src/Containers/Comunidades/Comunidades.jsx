@@ -50,9 +50,9 @@ const Comunidades = (props) => {
                 {
                     comunidades.map((comunidad) => {
                         return (
-                            <div className="cardsComunidad" key={comunidad.id}>
-                                <Card style={{ width: '30rem' }} >
-                                    <Card.Img variant="top" src={
+                            <div className="cardsComunidades" key={comunidad.id}>
+                                <Card style={{ width: '30rem', flex: 'column'}} >
+                                    <Card.Img style={{ width: '30rem', height: '20rem' }} variant="top" src={
                                         comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
                                     } />
                                     <Card.Body>

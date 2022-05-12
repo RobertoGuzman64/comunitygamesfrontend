@@ -11,4 +11,16 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    flex-wrap:wrap;
 }
+
+/* 
+.cardsComunidades{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+} */
