@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/actions';
 
+
 const Header = (props) => {
     let navigate = useNavigate();
     const cambiarPagina = (pagina) => {

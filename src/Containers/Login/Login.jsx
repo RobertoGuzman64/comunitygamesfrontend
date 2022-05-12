@@ -12,7 +12,6 @@ import { connect } from 'react-redux';
 import { LOGIN } from '../../redux/actions';
 
 
-
 const Login = (props) => {
     let navigate = useNavigate();
     const [credenciales, setCredenciales] = useState("");

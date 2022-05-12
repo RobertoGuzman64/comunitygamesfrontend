@@ -13,7 +13,6 @@ import { connect } from 'react-redux';
 
 const CrearComunidad = (props) => {
     let navigate = useNavigate();
-
     const [datosUsuario, setDatosUsuario] = useState({
         titulo: "",
         imagen: "",

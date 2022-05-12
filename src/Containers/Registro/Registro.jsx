@@ -10,7 +10,6 @@ import axios from 'axios';
 import { baseURL } from '../../utiles';
 
 
-
 const Registro = () => {
     let navigate = useNavigate();
     const [ msgError, setMsgError ] = useState('');

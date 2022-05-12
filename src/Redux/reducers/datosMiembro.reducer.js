@@ -13,7 +13,7 @@ const datosMiembroReducer = (state = initialState, action) => {
 
         case MIEMBROS_COMUNIDAD:
             return {...state, miembros: action.payload};
-            
+
         default:
             return state;
     }

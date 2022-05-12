@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button'
 // Redux
 import { connect } from 'react-redux';
 
+
 const Perfil = (props) => {
     let navigate = useNavigate();
 
@@ -56,7 +57,6 @@ const Perfil = (props) => {
         </div>
     )
 }
-
 
 export default connect((state) => ({
     credenciales: state.credenciales

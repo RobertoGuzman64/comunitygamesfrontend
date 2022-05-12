@@ -16,10 +16,10 @@ import moment from 'moment';
 import 'moment/locale/es';
 
 
+
 const Comunidad = (props) => {
     let navigate = useNavigate();
     const [miembros, setMiembros] = useState([]);
-
 
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
@@ -106,9 +106,6 @@ const Comunidad = (props) => {
         </div>
     )
 }
-
-
-
 
 export default connect((state) => ({
     credenciales: state.credenciales,

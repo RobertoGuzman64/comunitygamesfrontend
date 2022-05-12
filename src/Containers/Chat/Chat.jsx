@@ -16,7 +16,6 @@ import 'moment/locale/es';
 
 
 const Chat = (props) => {
-
     const [mensajes, setMensajes] = useState([]);
     const [datosUsuario, setDatosUsuario] = useState({
         mensaje: "",

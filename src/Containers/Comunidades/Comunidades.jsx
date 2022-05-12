@@ -15,8 +15,9 @@ import { DATOS_COMUNIDAD } from '../../redux/actions';
 import moment from 'moment';
 import 'moment/locale/es';
 
-const Comunidades = (props) => {
 
+
+const Comunidades = (props) => {
     const [comunidades, setComunidades] = useState([]);
     let navigate = useNavigate();
 

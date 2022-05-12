@@ -16,7 +16,6 @@ import 'moment/locale/es';
 
 const Miembro = (props) => {
     let navigate = useNavigate();
-
     const [datosUsuario, setDatosUsuario] = useState({
         motivo: "",
         avatar: "",

@@ -15,6 +15,7 @@ import { DATOS_COMUNIDAD, GENERO_COMUNIDAD, ESTADO_INICIAL } from '../../redux/a
 import moment from 'moment';
 import 'moment/locale/es';
 
+
 const Buscar = (props) => {
     let navigate = useNavigate();
     const [genero, setGenero] = useState("");
@@ -74,7 +75,6 @@ const Buscar = (props) => {
         </div>
     )
 }
-
 
 export default connect((state) => ({
     credenciales: state.credenciales,

@@ -12,7 +12,6 @@ import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/actions';
 
 
-
 const BorrarUsuario = (props) => {
     let navigate = useNavigate();
     const cambiarPagina = (pagina) => {
@@ -59,7 +58,6 @@ const BorrarUsuario = (props) => {
         </div>
     )
 };
-
 
 export default connect((state) => ({
     credenciales: state.credenciales

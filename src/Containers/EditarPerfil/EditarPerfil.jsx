@@ -12,10 +12,8 @@ import { connect } from 'react-redux';
 import { MODIFICAR_CREDENCIALES } from '../../redux/actions';
 
 
-
 const EditarPerfil = (props) => {
     let navigate = useNavigate();
-
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
             navigate(pagina)
@@ -96,7 +94,6 @@ const EditarPerfil = (props) => {
         </div>
     )
 };
-
 
 export default connect((state) => ({
     credenciales: state.credenciales

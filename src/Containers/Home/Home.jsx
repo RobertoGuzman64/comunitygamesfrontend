@@ -8,11 +8,9 @@ const Home = () => {
     return (
         <div className='paginaHome'>
             <Header />
-
             <Footer />
         </div>
     )
 }
-
 
 export default Home;

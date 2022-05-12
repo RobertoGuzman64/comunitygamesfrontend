@@ -11,7 +11,6 @@ import { baseURL } from '../../utiles';
 import { connect } from 'react-redux';
 
 
-
 const EditarClave = (props) => {
     let navigate = useNavigate();
 
@@ -106,7 +105,6 @@ const EditarClave = (props) => {
         </div>
     )
 };
-
 
 export default connect((state) => ({
     credenciales: state.credenciales
