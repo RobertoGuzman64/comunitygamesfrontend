@@ -83,6 +83,12 @@ const Comunidad = (props) => {
                         } />
                         <Card.Body>
                             <Card.Title>Miembros de esta Comunidad{ }</Card.Title>
+                            <hr></hr>
+                            <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {mostrarBotones()}
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <hr></hr>
                             {
                                 miembros.map((miembro) => {
                                     return (
@@ -90,14 +96,11 @@ const Comunidad = (props) => {
                                             <Card.Text>{miembro.nick}</Card.Text>
                                             <img className='avatarMiembro' src={miembro.avatar} alt={miembro} />
                                             <Card.Text>Miembro desde : {moment(miembro.fecha).format('LL')}</Card.Text>
+                                            <hr></hr>
                                         </div>
                                     )
                                 })
                             }
-                            <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {mostrarBotones()}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </Card.Body>
                     </Card>
                 </div>
