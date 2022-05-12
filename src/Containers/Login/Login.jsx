@@ -15,13 +15,11 @@ import { LOGIN } from '../../redux/actions';
 
 const Login = (props) => {
     let navigate = useNavigate();
-    // 1 - Hooks (Equivalen al estado en los componentes de clase)
     const [credenciales, setCredenciales] = useState("");
     const [datosUsuario, setDatosUsuario] = useState({ email: '', clave: '' });
     const [msgError, setMsgError] = useState('');
     const [msgError2, setMsgError2] = useState('');
 
-    // Funciones handlers
     const rellenarDatos = (e) => {
         setDatosUsuario({ ...datosUsuario, [e.target.name]: e.target.value })
     };
@@ -51,7 +49,6 @@ const Login = (props) => {
                 setMsgError2('Usuario o contraseña inválido')
             } else {
                 setCredenciales(resultado.data)
-                // GUARDAMOS LOS DATOS DEL LOGIN EN REDUX.
                 props.dispatch({ type: LOGIN, payload: resultado.data });
                 navigate("/");
             }
@@ -82,6 +79,11 @@ const Login = (props) => {
                     <Button onClick={() => Login()} variant="secondary" size="lg">
                         Iniciar Sesión
                     </Button>
+                    &nbsp;
+                    <div className='msgError'>
+                    {msgError}
+                    {msgError2}
+                    </div>
                 </div>
             </div>
             <Footer />
