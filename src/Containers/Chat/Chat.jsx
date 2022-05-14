@@ -45,7 +45,7 @@ const Chat = (props) => {
     const enviarMensaje = async () => {
         let body = {
             comunidad_id: props.datosComunidad.id,
-            miembro_id: props.credenciales.usuario.id,
+            usuario_id: props.credenciales.usuario.id,
             nick: props.credenciales.usuario.nick,
             mensaje: datosUsuario.mensaje,
             fecha: Date.now(),
@@ -55,7 +55,7 @@ const Chat = (props) => {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
-            let respuesta = await axios.post(`${baseURL}/mensajes/miembro`, body, config);
+            let respuesta = await axios.post(`${baseURL}/mensajes`, body, config);
             console.log(respuesta.data);
             window.location.reload(true);
         } catch (error) {
