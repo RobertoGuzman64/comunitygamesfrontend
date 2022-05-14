@@ -1,4 +1,4 @@
-export const baseURL = 'https://comunitygamesbackend.herokuapp.com' || 'http://localhost:5000/';
+export const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost:5000/';
 
 export const checkError = (type,value) => {
     switch(type) {
