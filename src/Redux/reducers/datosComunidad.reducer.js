@@ -14,7 +14,6 @@ const datosComunidadReducer = (state = initialState, action) => {
             return { ...state, comunidades: action.payload };
         case ESTADO_INICIAL:
             return initialState;
-            
         default:
             return state
     }
