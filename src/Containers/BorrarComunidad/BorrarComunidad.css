@@ -1,0 +1,32 @@
+.paginaBorrarComunidad {
+    background-color: #34393e;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenidoBorrarComunidad{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2em;
+}
+
+.inputsBorrarComunidad {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #272b30;
+    height: 30em;
+    width: 45em;
+    align-items: center;
+    justify-content: center;
+}
+
+.botonesBorrarComunidad{
+    display: flex;
+    justify-items: space-evenly;
+    margin-top: 1em;
+}

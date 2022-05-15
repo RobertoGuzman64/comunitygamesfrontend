@@ -23,7 +23,7 @@ const BorrarUsuario = (props) => {
     useEffect(() => {
     }, [props.credenciales.usuario])
 
-    const borraUsuario = async () => {
+    const borrarUsuario = async () => {
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
@@ -39,16 +39,16 @@ const BorrarUsuario = (props) => {
     }
 
     return (
-        <div className='paginaEditarClave'>
+        <div className='paginaBorrarUsuario'>
             <Header />
-            <div className='contenidoEditarClave'>
-                <div className='inputsEditarClave'>
+            <div className='contenidoBorrarUsuario'>
+                <div className='inputsBorrarUsuario'>
                     <p className='titulo'>Seguro que quieres eliminar tu cuenta ??</p>
-                    <div className='botonesEditarClave'>
+                    <div className='botonesBorrarUsuario'>
                         <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="outline-secondary" size="lg">
                             Volver
                         </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <Button onClick={() => borraUsuario()} variant="danger" size="lg">
+                        <Button onClick={() => borrarUsuario()} variant="danger" size="lg">
                             Eliminar cuenta
                         </Button>
                     </div>

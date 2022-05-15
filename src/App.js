@@ -13,6 +13,7 @@ import Buscar from './Containers/Buscar/Buscar';
 import Miembro from './Containers/Miembro/Miembro';
 import Chat from './Containers/Chat/Chat';
 import EditarComunidad from './Containers/EditarComunidad/EditarComunidad';
+import BorrarComunidad from './Containers/BorrarComunidad/BorrarComunidad';
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/Miembro" element={<Miembro />} />
           <Route path="/Chat" element={<Chat />} />
           <Route path="/EditarComunidad" element={<EditarComunidad />} />
+          <Route path="/BorrarComunidad" element={<BorrarComunidad />} />
         </Routes>
       </BrowserRouter>
     </div>
