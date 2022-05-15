@@ -1,10 +1,21 @@
 .Footer {
     height: 7%;
-    background-color: #272b30;
-    color: white;
+    background-color: #1c1e22;
     padding-left: 4em;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+}
+
+.izquierdaFooter{
+    height: 100%;
+    width: 18.5%;
+}
+
+.contenidoFooter{
+    height: 100%;
+    width: 100em;
+    background-image: url(/img/footer.png);
+    background-repeat: no-repeat;
+    background-size: 100% 7em;
 }

@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { } from 'react';
 import './Footer.css';
 
 
 const Footer = () => {
     return (
         <div className='Footer'>
+            <div className='izquierdaFooter'></div>
+            <div className='contenidoFooter'></div>
         </div>
     )
 }
