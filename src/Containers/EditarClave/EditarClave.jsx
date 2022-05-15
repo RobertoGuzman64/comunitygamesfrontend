@@ -66,30 +66,26 @@ const EditarClave = (props) => {
                 <div className='inputsEditarClave'>
                     <p className='titulo'>Editar Contraseña !</p>
                     <input className='input' type="password" name="claveAnterior" id="claveAnterior" title="claveAnterior" placeholder={`Contraseña Actual :`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                    <button onClick={(e) => {
-                        let input = document.getElementById('claveAnterior');
-                        if (input.type === 'password') {
-                            input.type = 'text'
-                            e.target.innerHTML = 'Esconder Contraseña'
-                        } else {
-                            input.type = 'password'
-                            e.target.innerHTML = 'Mostrar Contraseña'
-                        }
-                    }}>
-                        Mostrar Contraseña
-                    </button>
                     <input className='input' type="password" name="claveNueva" id="claveNueva" title="claveNueva" placeholder={`Contraseña Nueva :`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <button onClick={(e) => {
                         let input = document.getElementById('claveNueva');
+                        let input2 = document.getElementById('claveAnterior');
                         if (input.type === 'password') {
                             input.type = 'text'
-                            e.target.innerHTML = 'Esconder Contraseña'
+                            e.target.innerHTML = 'Esconder Contraseñas'
                         } else {
                             input.type = 'password'
-                            e.target.innerHTML = 'Mostrar Contraseña'
+                            e.target.innerHTML = 'Mostrar Contraseñas'
+                        }
+                        if (input2.type === 'password') {
+                            input2.type = 'text'
+                            e.target.innerHTML = 'Esconder Contraseñas'
+                        } else {
+                            input2.type = 'password'
+                            e.target.innerHTML = 'Mostrar Contraseñas'
                         }
                     }}>
-                        Mostrar Contraseña
+                        Mostrar Contraseñas
                     </button>
                     <div className='botonesEditarClave'>
                         <Button onClick={() => cambiarPagina("/EditarPerfil")} variant="outline-secondary" size="lg">
