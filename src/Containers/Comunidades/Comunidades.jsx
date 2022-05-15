@@ -51,11 +51,11 @@ const Comunidades = (props) => {
                     comunidades.map((comunidad) => {
                         return (
                             <div className="cardsComunidades" key={comunidad.id}>
-                                <Card style={{ width: '30rem', flex: 'column'}} >
+                                <Card style={{ width: '30rem', flex: 'column', backgroundColor: '#272b30'}} >
                                     <Card.Img style={{ width: '30rem', height: '20rem' }} variant="top" src={
                                         comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
                                     } />
-                                    <Card.Body>
+                                    <Card.Body style={{ color: '#fff' }}>
                                         <Card.Title>{comunidad.titulo}</Card.Title>
                                         <Card.Text>Genero : {comunidad.genero}</Card.Text>
                                         <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
