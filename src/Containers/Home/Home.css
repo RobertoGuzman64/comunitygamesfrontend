@@ -7,9 +7,23 @@
 }
 
 .contenidoHome {
-    background-color: #34393e;
     display: flex;
-    height: 100%;
     align-items: center;
     justify-content: center;
+    background-color: #34393e;
+    height: 100%;
+    width: 100%;
+}
+
+.izquierdaHome{
+    height: 100%;
+    width: 25%;
+}
+
+.gifHome{
+    height: 100%;
+    width: 100%;
+    background-image: url(/img/home.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
 }

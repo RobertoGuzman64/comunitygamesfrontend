@@ -9,7 +9,8 @@ const Home = () => {
         <div className='paginaHome'>
             <Header />
             <div className='contenidoHome'>
-                
+                <div className='izquierdaHome'></div>
+                <div className='gifHome'></div>
             </div>
             <Footer />
         </div>
