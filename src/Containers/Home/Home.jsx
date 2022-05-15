@@ -8,6 +8,9 @@ const Home = () => {
     return (
         <div className='paginaHome'>
             <Header />
+            <div className='contenidoHome'>
+                
+            </div>
             <Footer />
         </div>
     )
