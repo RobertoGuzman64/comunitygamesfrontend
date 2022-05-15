@@ -56,7 +56,7 @@ const EditarPerfil = (props) => {
             let resultado = await axios.put(`${baseURL}/usuarios/${props.credenciales.usuario.id}`, body, config);
             if (resultado) {
                 props.dispatch({ type: MODIFICAR_CREDENCIALES, payload: datosUsuario });
-                navigate('/');
+                navigate('/Perfil');
             }
         } catch (error) {
             console.log(error)

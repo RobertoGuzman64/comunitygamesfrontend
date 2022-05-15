@@ -14,12 +14,13 @@
 }
 
 .inputsEditarComunidad {
+    color: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     background-color: #272b30;
     height: 48em;
-    width: 45em;
+    width: 60em;
     align-items: center;
     justify-content: center;
 }

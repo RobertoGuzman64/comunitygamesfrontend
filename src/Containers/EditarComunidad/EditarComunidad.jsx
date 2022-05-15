@@ -26,10 +26,7 @@ const EditarComunidad = (props) => {
     })
 
     const rellenarDatos = (e) => {
-        setDatosUsuario({
-            ...datosUsuario,
-            [e.target.name]: e.target.value
-        })
+        setDatosUsuario({...datosUsuario,[e.target.name]: e.target.value})
     };
 
     useEffect(() => {
@@ -67,6 +64,7 @@ const EditarComunidad = (props) => {
             <Header />
             <div className="contenidoEditarComunidad">
                 <div className="inputsEditarComunidad">
+                    <h1>Comunidad {props.datosComunidad.comunidad.titulo}</h1>
                     <input className='input' type="text" name="titulo" id="titulo" title="titulo" placeholder={`Nombre del Juego : ${props.datosComunidad.comunidad.titulo}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input' type="text" name="imagen" id="imagen" title="imagen" placeholder={`URL de la imagen de la portada del Juego : ${props.datosComunidad.comunidad.imagen}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input' type="text" name="genero" id="genero" title="genero" placeholder={`Género del Juego ejemplos : (guerra) (estrategia)etc... : ${props.datosComunidad.comunidad.genero}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
