@@ -88,7 +88,6 @@ npm install react-boostrap
 ```
 ***
 ![React-Boostrap](./img/reactboostrap.png)
-![React-Boostrap](./img/reactaxios.png)
 ***
 
 ## Explicación de la estructura del proyecto

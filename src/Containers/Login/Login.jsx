@@ -19,6 +19,12 @@ const Login = (props) => {
     const [msgError, setMsgError] = useState('');
     const [msgError2, setMsgError2] = useState('');
 
+    const cambiarPagina = (pagina) => {
+        setTimeout(() => {
+            navigate(pagina)
+        }, 500);
+    }
+
     const rellenarDatos = (e) => {
         setDatosUsuario({ ...datosUsuario, [e.target.name]: e.target.value })
     };
@@ -63,6 +69,7 @@ const Login = (props) => {
                 <div className='inputsLogin'>
                     <input className='input2' type="text" name="email" id="email" title="email" placeholder="Correo Electronico" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input2' type="password" name="clave" id="clave" title="clave" placeholder="Contraseña" autoComplete="off" onChange={(e) => { rellenarDatos(e); checkClave(e) }} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <button onClick={(e) => {
                         let input = document.getElementById('clave');
                         if (input.type === 'password') {
@@ -75,10 +82,17 @@ const Login = (props) => {
                     }}>
                         Mostrar Contraseña
                     </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div className='botonesLogin'>
+                    <Button onClick={() => cambiarPagina("/Registro")} variant="outline-secondary" size="lg">
+                        Ir a Registrarte
+                    </Button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <Button onClick={() => Login()} variant="secondary" size="lg">
                         Iniciar Sesión
                     </Button>
                     &nbsp;
+                    </div>
                     <div className='msgError'>
                     {msgError}
                     {msgError2}
