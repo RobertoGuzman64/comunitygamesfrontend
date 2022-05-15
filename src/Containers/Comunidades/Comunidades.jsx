@@ -48,6 +48,11 @@ const Comunidades = (props) => {
         navigate("/EditarComunidad");
     };
 
+    const borrarComunidad = async (comunidad) => {
+        await props.dispatch({ type: DATOS_COMUNIDAD, payload: comunidad });
+        navigate("/BorrarComunidad");
+    };
+
     if (props.credenciales.usuario.administrador === true) {
         return (
             <div className='paginaComunidades'>
@@ -67,11 +72,12 @@ const Comunidades = (props) => {
                                             <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
                                             <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
                                             <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
+                                            &nbsp;&nbsp;&nbsp;
                                             <Button onClick={() => verComunidad(comunidad)} variant="outline-secondary">Ver Comunidad</Button>
                                             &nbsp;&nbsp;
                                             <Button onClick={() => modificarComunidad(comunidad)} variant="secondary">Modificar Comunidad</Button>
                                             &nbsp;&nbsp;
-                                            <Button onClick={() => modificarComunidad(comunidad)} variant="danger">Eliminar Comunidad</Button>
+                                            <Button onClick={() => borrarComunidad(comunidad)} variant="danger">Eliminar Comunidad</Button>
                                         </Card.Body>
                                     </Card>
                                 </div>

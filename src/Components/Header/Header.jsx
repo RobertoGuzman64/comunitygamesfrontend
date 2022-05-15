@@ -30,10 +30,10 @@ const Header = (props) => {
                     <h1>Comunity Games</h1>
                 </div>
                 <div className='botonesHeader'>
-                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Registro")} variant="outline-secondary">Registro</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/")} variant="secondary">Home</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="secondary">Comunidades</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Buscar")} variant="secondary">Buscar Comunidad</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Registro")} variant="secondary">Registro</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Login")} variant="light">Login</Button>
                 </div>
             </div>
@@ -47,11 +47,11 @@ const Header = (props) => {
                 </div>
                 <div className='nick'>{props.credenciales?.usuario.nombre}&nbsp;{props.credenciales?.usuario.apellidos}</div>
                 <div className='botonesHeader'>
-                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/CrearComunidad")} variant="outline-secondary">Crear Comunidad</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Perfil")} variant="outline-secondary">Mi Perfil</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/")} variant="secondary">Home</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="secondary">Comunidades</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Buscar")} variant="secondary">Buscar Comunidad</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/CrearComunidad")} variant="secondary">Crear Comunidad</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Perfil")} variant="secondary">Mi Perfil</Button>{' '}&nbsp;
                     <Button onClick={() => logOut()} variant="light">Logout</Button>
                 </div>
             </div>
@@ -65,10 +65,10 @@ const Header = (props) => {
                 </div>
                 <div className='nick'>{props.credenciales?.usuario.nick}</div>
                 <div className='botonesHeader'>
-                    <Button onClick={() => cambiarPagina("/")} variant="outline-secondary">Home</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Comunidades</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Buscar")} variant="outline-secondary">Buscar Comunidad</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/Perfil")} variant="outline-secondary">Mi Perfil</Button>{' '}&nbsp;&nbsp;
+                    <Button onClick={() => cambiarPagina("/")} variant="secondary">Home</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Comunidades")} variant="secondary">Comunidades</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Buscar")} variant="secondary">Buscar Comunidad</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/Perfil")} variant="secondary">Mi Perfil</Button>{' '}&nbsp;&nbsp;
                     <Button onClick={() => logOut()} variant="light">Logout</Button>
                 </div>
             </div>
