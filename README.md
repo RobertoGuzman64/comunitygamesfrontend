@@ -5,7 +5,7 @@
 ## Repositorio en el que se a estado trabajando el proyecto. 
 ## https://github.com/RobertoGuzman64/comunitygamesfrontend.git
 ***
-![Vista Principal de la APP de React](./img/HOME.png)
+![Vista Principal de la APP de React](./img/homereadme.png)
 ***
 
 La aplicación tiene las siguientes características:
@@ -24,10 +24,9 @@ La aplicación tiene las siguientes características:
         * Modificar Comunidades.
 
 ***
-![Vista Inicial APP React](./img/USUARIO.png)
+![Vista Comunidades de la APP de React](./img/comunidades.png)
 ***
-![Vista Inicial APP React](./img/ADMINISTRADOR.png)
-***
+
 
 ## Pre-requisitos del proyecto para hacerlo funcionar en tu equipo local:
 
@@ -88,7 +87,8 @@ npm install moment
 npm install react-boostrap
 ```
 ***
-![Vista Inicial APP React](./img/react.png)
+![React-Boostrap](./img/reactboostrap.png)
+![React-Boostrap](./img/reactaxios.png)
 ***
 
 ## Explicación de la estructura del proyecto
@@ -131,5 +131,5 @@ El directorio **src** es donde está almacenada toda la aplicación. En este dir
     * **Footer**: En este componente se encuentra el footer de la aplicación.
 * **img**: En este directorio se guardan todas las imágenes que se usarán para la aplicación y para el readme.
 ***
-![Vista Principal de la APP de React](./img/react%26heroku.jpg)
+![Vista Principal de la APP de React](./img/reactredux.png)
 ***
