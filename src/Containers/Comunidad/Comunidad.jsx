@@ -77,11 +77,11 @@ const Comunidad = (props) => {
             <Header />
             <div className="contenidoComunidad">
                 <div className="cardComunidad">
-                    <Card >
+                    <Card style={{ width: '60rem', flex: 'column', backgroundColor: '#272b30'}}>
                         <Card.Img variant="top" src={
                             props.datosComunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : props.datosComunidad.imagen
                         } />
-                        <Card.Body>
+                        <Card.Body style={{ color: '#fff', overflow: 'auto',  }}>
                             <Card.Title>Miembros de esta Comunidad{ }</Card.Title>
                             <hr></hr>
                             <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
