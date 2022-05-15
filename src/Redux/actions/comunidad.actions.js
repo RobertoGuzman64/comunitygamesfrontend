@@ -2,3 +2,4 @@
 export const DATOS_COMUNIDAD = 'datos_comunidad';
 export const GENERO_COMUNIDAD = 'genero_comunidad';
 export const ESTADO_INICIAL = 'estado_inicial';
+export const MODIFICAR_COMUNIDAD = 'modificar_comunidad';

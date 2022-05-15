@@ -29,10 +29,7 @@ const CrearComunidad = (props) => {
     })
 
     const rellenarDatos = (e) => {
-        setDatosUsuario({
-            ...datosUsuario,
-            [e.target.name]: e.target.value
-        })
+        setDatosUsuario({...datosUsuario,[e.target.name]: e.target.value})
     };
 
     const crearNuevaComunidad = async () => {
@@ -67,6 +64,7 @@ const CrearComunidad = (props) => {
                     <input className='input' type="date" name="fecha" id="fecha" title="fecha" placeholder="Fecha de Lanzamiento del Juego" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input' type="float" name="popularidad" id="popularidad" title="popularidad" placeholder="Popularidad del Juego" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                     <input className='input' type="text" name="descripcion" id="descripcion" title="descripcion" placeholder="Descripción completa del Juego" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                    &nbsp;
                     <Button onClick={() => crearNuevaComunidad()} variant="secondary" size="lg">
                         Crear Comunidad del Juego
                     </Button>

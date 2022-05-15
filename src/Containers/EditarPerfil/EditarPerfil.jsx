@@ -30,10 +30,7 @@ const EditarPerfil = (props) => {
     })
 
     const rellenarDatos = (e) => {
-        setDatosUsuario({
-            ...datosUsuario,
-            [e.target.name]: e.target.value
-        })
+        setDatosUsuario({...datosUsuario,[e.target.name]: e.target.value})
     };
 
     useEffect(() => {

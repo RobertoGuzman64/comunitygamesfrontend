@@ -61,7 +61,7 @@ const Comunidad = (props) => {
                         <>
                         <Button onClick={() => cambiarPagina("/Chat")} variant="secondary">Chat de la Comunidad</Button>
                         &nbsp;&nbsp;
-                        <Button onClick={() => cambiarPagina("/Chat")} variant="secondary">Salir de la Comunidad</Button>
+                        <Button onClick={() => cambiarPagina("/BorrarMiembro")} variant="danger">Salir de la Comunidad</Button>
                         </>
                     )
                 }

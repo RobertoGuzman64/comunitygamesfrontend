@@ -1,0 +1,25 @@
+.paginaEditarComunidad {
+    background-color: #34393e;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenidoEditarComunidad {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputsEditarComunidad {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #272b30;
+    height: 48em;
+    width: 45em;
+    align-items: center;
+    justify-content: center;
+}

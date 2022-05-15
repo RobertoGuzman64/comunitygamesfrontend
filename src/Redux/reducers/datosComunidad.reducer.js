@@ -1,4 +1,4 @@
-import { DATOS_COMUNIDAD, GENERO_COMUNIDAD, ESTADO_INICIAL } from '../actions';
+import { DATOS_COMUNIDAD, GENERO_COMUNIDAD, ESTADO_INICIAL, MODIFICAR_COMUNIDAD} from '../actions';
 
 const initialState = {
     comunidad: {},
@@ -14,6 +14,8 @@ const datosComunidadReducer = (state = initialState, action) => {
             return { ...state, comunidades: action.payload };
         case ESTADO_INICIAL:
             return initialState;
+        case MODIFICAR_COMUNIDAD:
+            return { ...state, comunidad: action.payload };
         default:
             return state
     }

@@ -21,6 +21,12 @@ const Comunidades = (props) => {
     const [comunidades, setComunidades] = useState([]);
     let navigate = useNavigate();
 
+    // const cambiarPagina = (pagina) => {
+    //     setTimeout(() => {
+    //         navigate(pagina)
+    //     }, 500);
+    // }
+
     useEffect(() => {
         traerComunidades();
         moment.locale('es');
