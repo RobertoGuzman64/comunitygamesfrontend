@@ -43,35 +43,76 @@ const Comunidades = (props) => {
         navigate("/Comunidad");
     };
 
-    return (
-        <div className='paginaComunidades'>
-            <Header />
-            <div className="contenidoComunidades">
-                {
-                    comunidades.map((comunidad) => {
-                        return (
-                            <div className="cardsComunidades" key={comunidad.id}>
-                                <Card style={{ width: '30rem', flex: 'column', backgroundColor: '#272b30'}} >
-                                    <Card.Img style={{ width: '30rem', height: '20rem' }} variant="top" src={
-                                        comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
-                                    } />
-                                    <Card.Body style={{ color: '#fff' }}>
-                                        <Card.Title>{comunidad.titulo}</Card.Title>
-                                        <Card.Text>Genero : {comunidad.genero}</Card.Text>
-                                        <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
-                                        <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
-                                        <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
-                                        <Button onClick={() => verComunidad(comunidad)} variant="secondary">Ver Comunidad</Button>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                        )
-                    })
-                }
+    const modificarComunidad = async (comunidad) => {
+        await props.dispatch({ type: DATOS_COMUNIDAD, payload: comunidad });
+        navigate("/EditarComunidad");
+    };
+
+    if (props.credenciales.usuario.administrador === true) {
+        return (
+            <div className='paginaComunidades'>
+                <Header />
+                <div className="contenidoComunidades">
+                    {
+                        comunidades.map((comunidad) => {
+                            return (
+                                <div className="cardsComunidades" key={comunidad.id}>
+                                    <Card style={{ width: '35rem', flex: 'column', backgroundColor: '#272b30',marginRight:'1em' }} >
+                                        <Card.Img style={{ width: '35rem', height: '20rem' }} variant="top" src={
+                                            comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
+                                        } />
+                                        <Card.Body style={{ color: '#fff' }}>
+                                            <Card.Title>{comunidad.titulo}</Card.Title>
+                                            <Card.Text>Genero : {comunidad.genero}</Card.Text>
+                                            <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
+                                            <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
+                                            <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
+                                            <Button onClick={() => verComunidad(comunidad)} variant="outline-secondary">Ver Comunidad</Button>
+                                            &nbsp;&nbsp;
+                                            <Button onClick={() => modificarComunidad(comunidad)} variant="secondary">Modificar Comunidad</Button>
+                                            &nbsp;&nbsp;
+                                            <Button onClick={() => modificarComunidad(comunidad)} variant="danger">Eliminar Comunidad</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div className='paginaComunidades'>
+                <Header />
+                <div className="contenidoComunidades">
+                    {
+                        comunidades.map((comunidad) => {
+                            return (
+                                <div className="cardsComunidades" key={comunidad.id}>
+                                    <Card style={{ width: '30rem', flex: 'column', backgroundColor: '#272b30' }} >
+                                        <Card.Img style={{ width: '30rem', height: '20rem' }} variant="top" src={
+                                            comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
+                                        } />
+                                        <Card.Body style={{ color: '#fff' }}>
+                                            <Card.Title>{comunidad.titulo}</Card.Title>
+                                            <Card.Text>Genero : {comunidad.genero}</Card.Text>
+                                            <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
+                                            <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
+                                            <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
+                                            <Button onClick={() => verComunidad(comunidad)} variant="secondary">Ver Comunidad</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <Footer />
+            </div>
+        )
+    }
 }
 
 export default connect((state) => ({
