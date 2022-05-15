@@ -58,7 +58,11 @@ const Comunidad = (props) => {
             for (let i = 0; i < props.datosMiembro.length; i++) {
                 if (props.datosMiembro[i].usuario_id === props.credenciales.usuario.id) {
                     return (
+                        <>
                         <Button onClick={() => cambiarPagina("/Chat")} variant="secondary">Chat de la Comunidad</Button>
+                        &nbsp;&nbsp;
+                        <Button onClick={() => cambiarPagina("/Chat")} variant="secondary">Salir de la Comunidad</Button>
+                        </>
                     )
                 }
             }

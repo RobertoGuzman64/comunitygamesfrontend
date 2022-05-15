@@ -12,6 +12,8 @@ import CrearComunidad from './Containers/CrearComunidad/CrearComunidad';
 import Buscar from './Containers/Buscar/Buscar';
 import Miembro from './Containers/Miembro/Miembro';
 import Chat from './Containers/Chat/Chat';
+import EditarComunidad from './Containers/EditarComunidad/EditarComunidad';
+
 
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
           <Route path="/Buscar" element={<Buscar />} />
           <Route path="/Miembro" element={<Miembro />} />
           <Route path="/Chat" element={<Chat />} />
+          <Route path="/EditarComunidad" element={<EditarComunidad />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -48,9 +48,9 @@ const Header = (props) => {
                 <div className='nick'>{props.credenciales?.usuario.nombre}&nbsp;{props.credenciales?.usuario.apellidos}</div>
                 <div className='botonesHeader'>
                     <Button onClick={() => cambiarPagina("/")} variant="secondary">Home</Button>{' '}&nbsp;
+                    <Button onClick={() => cambiarPagina("/CrearComunidad")} variant="secondary">Crear Comunidad</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Comunidades")} variant="secondary">Comunidades</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Buscar")} variant="secondary">Buscar Comunidad</Button>{' '}&nbsp;
-                    <Button onClick={() => cambiarPagina("/CrearComunidad")} variant="secondary">Crear Comunidad</Button>{' '}&nbsp;
                     <Button onClick={() => cambiarPagina("/Perfil")} variant="secondary">Mi Perfil</Button>{' '}&nbsp;
                     <Button onClick={() => logOut()} variant="light">Logout</Button>
                 </div>

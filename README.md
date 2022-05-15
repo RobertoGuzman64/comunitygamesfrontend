@@ -123,6 +123,8 @@ El directorio **src** es donde está almacenada toda la aplicación. En este dir
     * **Buscar**: En esta vista se puede buscar Comunidades por género y además te redirige para poder unirte a ella.
     * **Comunidad**: En esta vista se visualiza la Comunidad y los miembros unidos a ella, además te redirige para poder unirte a ella o al chat.
     * **CrearComunidad**: En esta vista se puede crear una Comunidad.
+    * **EditarComunidad**: En esta vista se puede modificar una Comunidad.
+    * **BorrarComunidad**: En esta vista se puede borrar una Comunidad.
     * **Miembro**: En esta vista se encuentra el boton de unirse a la comunidad seleccionada previamente.
     * **Chat**: En esta vista se encuentra el chat de la comunidad seleccionada.
 * **Components**: En este directorio es donde se guardan todos los componentes que se usarán en todas las vistas:
