@@ -48,8 +48,7 @@ const Miembro = (props) => {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
-            let respuesta = await axios.post(`${baseURL}/miembros`, body, config);
-            console.log(respuesta.data);
+            await axios.post(`${baseURL}/miembros`, body, config);
             navigate("/Comunidad");
         } catch (error) {
             console.log(error.response.data);
@@ -61,11 +60,11 @@ const Miembro = (props) => {
             <Header />
             <div className="contenidoMiembro">
                 <div className="cardMiembro">
-                    <Card style={{ width: '50rem' }} >
+                    <Card style={{ width: '50rem', backgroundColor: '#272b30' }} >
                         <Card.Img variant="top" src={
                             props.datosComunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : props.datosComunidad.imagen
                         } />
-                        <Card.Body>
+                        <Card.Body style={{ color: '#fff' }}>
                             <Card.Title>{props.datosComunidad.titulo}</Card.Title>
                             <input className='inputMiembro' type="text" name="avatar" id="avatar" title="avatar" placeholder="Introduce la URL del avatar que mas te guste" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                             <Button onClick={() => crearMiembro()} variant="secondary">Unirse</Button>

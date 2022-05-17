@@ -55,8 +55,7 @@ const Chat = (props) => {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
-            let respuesta = await axios.post(`${baseURL}/mensajes`, body, config);
-            console.log(respuesta.data);
+            await axios.post(`${baseURL}/mensajes`, body, config);
             window.location.reload(true);
         } catch (error) {
             console.log(error)
@@ -69,7 +68,7 @@ const Chat = (props) => {
             <div className="contenidoChat">
                 <div className="cardChat">
                     <Card style={{ width: '100rem', height: '50rem', backgroundColor: '#272b30' }}>
-                        <Card.Body className='CardBody' style={{ color: '#fff', overflow: 'auto',  }}>
+                        <Card.Body className='CardBody' style={{ color: '#fff', overflow: 'auto', }}>
                             <Card.Title style={{ color: '#fff' }}>Chat de la Comunidad de {props.datosComunidad.titulo}</Card.Title>
                             {
                                 mensajes.map((mensaje) => {
