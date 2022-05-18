@@ -19,7 +19,7 @@ const EditarPerfil = (props) => {
             navigate(pagina)
         }, 500);
     }
-
+    const [msgError, setMsgError] = useState('');
     const [datosUsuario, setDatosUsuario] = useState({
         nick: props.credenciales.usuario.nick,
         nombre: props.credenciales.usuario.nombre,
@@ -59,7 +59,7 @@ const EditarPerfil = (props) => {
                 navigate('/Perfil');
             }
         } catch (error) {
-            console.log(error)
+            setMsgError(error);
         }
     }
     return (
@@ -84,6 +84,7 @@ const EditarPerfil = (props) => {
                         <Button onClick={() => actualizaUsuario()} variant="secondary" size="lg">
                             Guardar Cambios
                         </Button>
+                        {msgError}
                     </div>
                 </div>
             </div>

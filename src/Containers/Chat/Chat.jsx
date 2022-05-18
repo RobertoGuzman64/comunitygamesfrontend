@@ -16,6 +16,10 @@ import 'moment/locale/es';
 
 
 const Chat = (props) => {
+
+    const [ msgError, setMsgError ] = useState('');
+    const [ msgError2, setMsgError2 ] = useState('');
+
     const [mensajes, setMensajes] = useState([]);
     const [datosUsuario, setDatosUsuario] = useState({
         mensaje: "",
@@ -38,7 +42,7 @@ const Chat = (props) => {
             let resultado = await axios.get(`${baseURL}/mensajes/comunidad/${props.datosComunidad.id}`, config);
             setMensajes(resultado.data);
         } catch (error) {
-            console.log(error)
+            setMsgError(error);
         }
     };
 
@@ -58,7 +62,7 @@ const Chat = (props) => {
             await axios.post(`${baseURL}/mensajes`, body, config);
             window.location.reload(true);
         } catch (error) {
-            console.log(error)
+            setMsgError2(error);
         }
     }
 
@@ -70,6 +74,8 @@ const Chat = (props) => {
                     <Card style={{ width: '100rem', height: '50rem', backgroundColor: '#272b30' }}>
                         <Card.Body className='CardBody' style={{ color: '#fff', overflow: 'auto', }}>
                             <Card.Title style={{ color: '#fff' }}>Chat de la Comunidad de {props.datosComunidad.titulo}</Card.Title>
+                            <hr></hr>
+                            {msgError}
                             {
                                 mensajes.map((mensaje) => {
                                     return (
@@ -89,6 +95,7 @@ const Chat = (props) => {
                                 <input className='inputChat' type="text" name="mensaje" id="mensaje" title="mensaje" placeholder="Escribe..." autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                             </Form.Group>
                             <Button onClick={() => enviarMensaje()} style={{ marginLeft: '9.5em', marginBlockEnd: '1em' }} variant="secondary">Enviar Mensaje</Button>
+                            {msgError2}
                         </Form>
                     </Card>
                 </div>

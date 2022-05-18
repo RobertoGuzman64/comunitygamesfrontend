@@ -16,6 +16,7 @@ import 'moment/locale/es';
 
 const Miembro = (props) => {
     let navigate = useNavigate();
+    const [msgError, setMsgError] = useState('');
     const [datosUsuario, setDatosUsuario] = useState({
         avatar: "",
     });
@@ -51,7 +52,7 @@ const Miembro = (props) => {
             await axios.post(`${baseURL}/miembros`, body, config);
             navigate("/Comunidad");
         } catch (error) {
-            console.log(error.response.data);
+            setMsgError(error);
         };
     }
 
@@ -68,6 +69,7 @@ const Miembro = (props) => {
                             <Card.Title>{props.datosComunidad.titulo}</Card.Title>
                             <input className='inputMiembro' type="text" name="avatar" id="avatar" title="avatar" placeholder="Introduce la URL del avatar que mas te guste" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                             <Button onClick={() => crearMiembro()} variant="secondary">Unirse</Button>
+                            {msgError}
                             <Button onClick={() => cambiarPagina('/Comunidad')} variant="outline-secondary">Volver</Button>
                         </Card.Body>
                     </Card>

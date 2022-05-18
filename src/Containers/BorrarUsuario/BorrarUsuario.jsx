@@ -14,6 +14,9 @@ import { LOGOUT } from '../../redux/actions';
 
 const BorrarUsuario = (props) => {
     let navigate = useNavigate();
+
+    const [ msgError, setMsgError ] = useState('');
+    
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
             navigate(pagina)
@@ -34,7 +37,7 @@ const BorrarUsuario = (props) => {
                 navigate('/');
             }
         } catch (error) {
-            console.log(error)
+            setMsgError(error);
         }
     }
 
@@ -51,6 +54,7 @@ const BorrarUsuario = (props) => {
                         <Button onClick={() => borrarUsuario()} variant="danger" size="lg">
                             Eliminar cuenta
                         </Button>
+                        {msgError}
                     </div>
                 </div>
             </div>

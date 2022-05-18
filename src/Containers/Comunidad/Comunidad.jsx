@@ -19,7 +19,9 @@ import 'moment/locale/es';
 
 const Comunidad = (props) => {
     let navigate = useNavigate();
+
     const [miembros, setMiembros] = useState([]);
+    const [msgError, setMsgError] = useState('');
 
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
@@ -49,7 +51,7 @@ const Comunidad = (props) => {
             setMiembros(resultado.data);
             props.dispatch({ type: MIEMBROS_COMUNIDAD, payload: resultado.data });
         } catch (error) {
-            console.log(error)
+            setMsgError(error);
         }
     };
 
@@ -86,6 +88,7 @@ const Comunidad = (props) => {
                         } />
                         <Card.Body style={{ color: '#fff', overflow: 'auto',  }}>
                             <Card.Title>Miembros de esta Comunidad{ }</Card.Title>
+                            {msgError}
                             <hr></hr>
                             <Button onClick={() => cambiarPagina("/Comunidades")} variant="outline-secondary">Volver</Button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

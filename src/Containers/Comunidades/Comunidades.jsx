@@ -18,14 +18,9 @@ import 'moment/locale/es';
 
 
 const Comunidades = (props) => {
-    const [comunidades, setComunidades] = useState([]);
     let navigate = useNavigate();
-
-    // const cambiarPagina = (pagina) => {
-    //     setTimeout(() => {
-    //         navigate(pagina)
-    //     }, 500);
-    // }
+    const [comunidades, setComunidades] = useState([]);
+    const [msgError, setMsgError] = useState('');
 
     useEffect(() => {
         traerComunidades();
@@ -40,7 +35,7 @@ const Comunidades = (props) => {
             let resultado = await axios.get(`${baseURL}/comunidades`);
             setComunidades(resultado.data);
         } catch (error) {
-            console.log(error)
+            setMsgError(error);
         }
     };
 
@@ -86,6 +81,7 @@ const Comunidades = (props) => {
                                             <Button onClick={() => borrarComunidad(comunidad)} variant="danger">Eliminar Comunidad</Button>
                                         </Card.Body>
                                     </Card>
+                                    {msgError}
                                 </div>
                             )
                         })
@@ -116,6 +112,7 @@ const Comunidades = (props) => {
                                             <Button onClick={() => verComunidad(comunidad)} variant="secondary">Ver Comunidad</Button>
                                         </Card.Body>
                                     </Card>
+                                    {msgError}
                                 </div>
                             )
                         })

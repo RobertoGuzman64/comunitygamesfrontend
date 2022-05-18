@@ -13,6 +13,7 @@ import { baseURL } from '../../utiles';
 const Registro = () => {
     let navigate = useNavigate();
     const [ msgError, setMsgError ] = useState('');
+    const [ msgError2, setMsgError2 ] = useState('');
     const [datosUsuario, setDatosUsuario] = useState({
         nick: "",
         nombre: "",
@@ -64,7 +65,7 @@ const Registro = () => {
                 navigate("/login");
             }, 500);
         } catch (error) {
-            console.log(error, 'error');
+            setMsgError2(error);
         }
     }
 
@@ -86,6 +87,7 @@ const Registro = () => {
                     <Button onClick={() => registrame()} variant="secondary" size="lg">
                         Regístreme
                     </Button>
+                    {msgError2}
                 </div>
             </div>
             <Footer />

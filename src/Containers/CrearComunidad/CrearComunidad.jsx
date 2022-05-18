@@ -13,6 +13,8 @@ import { connect } from 'react-redux';
 
 const CrearComunidad = (props) => {
     let navigate = useNavigate();
+
+    const [msgError, setMsgError] = useState('');
     const [datosUsuario, setDatosUsuario] = useState({
         titulo: "",
         imagen: "",
@@ -29,7 +31,7 @@ const CrearComunidad = (props) => {
     })
 
     const rellenarDatos = (e) => {
-        setDatosUsuario({...datosUsuario,[e.target.name]: e.target.value})
+        setDatosUsuario({ ...datosUsuario, [e.target.name]: e.target.value })
     };
 
     const crearNuevaComunidad = async () => {
@@ -45,11 +47,10 @@ const CrearComunidad = (props) => {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
-            let resultado = await axios.post(`${baseURL}/comunidades`, body, config);
-            console.log(resultado.data);
+            await axios.post(`${baseURL}/comunidades`, body, config);
             navigate("/Comunidades");
         } catch (error) {
-            console.log(error, 'error');
+            setMsgError(error);
         }
     }
 
@@ -68,6 +69,7 @@ const CrearComunidad = (props) => {
                     <Button onClick={() => crearNuevaComunidad()} variant="secondary" size="lg">
                         Crear Comunidad del Juego
                     </Button>
+                    {msgError}
                 </div>
             </div>
             <Footer />

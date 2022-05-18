@@ -16,6 +16,7 @@ import { MODIFICAR_COMUNIDAD } from '../../redux/actions';
 const EditarComunidad = (props) => {
     let navigate = useNavigate();
 
+    const [msgError, setMsgError] = useState('');
     const [datosUsuario, setDatosUsuario] = useState({
         titulo: props.datosComunidad.titulo,
         imagen: props.datosComunidad.imagen,
@@ -55,7 +56,7 @@ const EditarComunidad = (props) => {
                 navigate('/Comunidades');
             }
         } catch (error) {
-            console.log(error)
+            setMsgError(error);
         }
     }
 
@@ -75,6 +76,7 @@ const EditarComunidad = (props) => {
                     <Button onClick={() => modificarComunidad()} variant="secondary" size="lg">
                         Actualizar Comunidad
                     </Button>
+                    {msgError}
                 </div>
             </div>
             <Footer />

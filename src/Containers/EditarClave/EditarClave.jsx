@@ -19,7 +19,7 @@ const EditarClave = (props) => {
             navigate(pagina)
         }, 500);
     }
-
+    const [msgError, setMsgError] = useState('');
     const [contrasena, setContrasena] = useState({
         claveAnterior: undefined,
         claveNueva: undefined,
@@ -55,7 +55,7 @@ const EditarClave = (props) => {
                 navigate('/');
             }
         } catch (error) {
-            console.log(error)
+            setMsgError(error);
         }
     }
 
@@ -94,6 +94,7 @@ const EditarClave = (props) => {
                         <Button onClick={() => actualizaClave()} variant="secondary" size="lg">
                             Cambiar Contraseña
                         </Button>
+                        {msgError}
                     </div>
                 </div>
             </div>

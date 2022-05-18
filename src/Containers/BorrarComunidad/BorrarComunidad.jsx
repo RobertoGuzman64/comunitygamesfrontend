@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 
 const BorrarComunidad = (props) => {
     let navigate = useNavigate();
+    
+    const [ msgError, setMsgError ] = useState('');
 
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
@@ -40,7 +42,7 @@ const BorrarComunidad = (props) => {
                 navigate('/Comunidades');
             }
         } catch (error) {
-            console.log(error)
+            setMsgError(error);
         }
     }
 
@@ -58,6 +60,7 @@ const BorrarComunidad = (props) => {
                         <Button onClick={() => eliminarComunidad()} variant="danger" size="lg">
                             Eliminar Comunidad
                         </Button>
+                        {msgError}
                     </div>
                 </div>
             </div>

@@ -18,6 +18,7 @@ const Login = (props) => {
     const [datosUsuario, setDatosUsuario] = useState({ email: '', clave: '' });
     const [msgError, setMsgError] = useState('');
     const [msgError2, setMsgError2] = useState('');
+    const [msgError3, setMsgError3] = useState('');
 
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
@@ -58,7 +59,7 @@ const Login = (props) => {
                 navigate("/");
             }
         } catch (error) {
-            console.log(error)
+            setMsgError3(error);
         }
     };
 
@@ -96,6 +97,7 @@ const Login = (props) => {
                     <div className='msgError'>
                     {msgError}
                     {msgError2}
+                    {msgError3}
                     </div>
                 </div>
             </div>

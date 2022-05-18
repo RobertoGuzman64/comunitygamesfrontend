@@ -18,6 +18,8 @@ import 'moment/locale/es';
 
 const Buscar = (props) => {
     let navigate = useNavigate();
+
+    const [ msgError, setMsgError ] = useState('');
     const [genero, setGenero] = useState("");
 
     useEffect(() => {
@@ -33,9 +35,10 @@ const Buscar = (props) => {
             let resultado = await axios.get(`${baseURL}/comunidades/genero/${genero}`);
             props.dispatch({ type: GENERO_COMUNIDAD, payload: resultado.data });
         } catch (error) {
-            console.log(error);
+            setMsgError(error);
         }
     }
+    
     const verComunidad = async (comunidad) => {
         props.dispatch({ type: DATOS_COMUNIDAD, payload: comunidad });
         navigate("/Comunidad");
@@ -64,6 +67,7 @@ const Buscar = (props) => {
                                         <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
                                         <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
                                         <Button onClick={() => verComunidad(comunidad)} variant="secondary">Ver Comunidad</Button>
+                                        {msgError}
                                     </Card.Body>
                                 </Card>
                             </div>
