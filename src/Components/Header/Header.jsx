@@ -9,7 +9,8 @@ import { LOGOUT } from '../../redux/actions';
 
 const Header = (props) => {
     let navigate = useNavigate();
-    const { token, administrador } = props.credenciales.usuario;
+    const { administrador } = props.credenciales.usuario;
+    const { token } = props.credenciales;
     
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
