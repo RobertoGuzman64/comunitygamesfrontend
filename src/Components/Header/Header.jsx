@@ -38,7 +38,9 @@ const Header = (props) => {
                 </div>
             </div>
         )
-    } else if (props.credenciales.usuario.administrador === true) {
+    }
+    
+    if (props.credenciales.usuario.administrador) {
         return (
             <div className='Header'>
                 <div className='containerLogo'>
@@ -56,7 +58,9 @@ const Header = (props) => {
                 </div>
             </div>
         )
-    } else {
+    }
+
+    if (props.credenciales.usuario.administrador === false) {
         return (
             <div className='Header'>
                 <div className='containerLogo'>
