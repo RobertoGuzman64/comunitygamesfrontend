@@ -19,7 +19,7 @@ import 'moment/locale/es';
 
 const Comunidades = (props) => {
     let navigate = useNavigate();
-    const usuario = props.credenciales.usuario;
+    const { administrador } = props.credenciales.usuario;
     const [comunidades, setComunidades] = useState([]);
     const [msgError, setMsgError] = useState('');
 
@@ -55,18 +55,19 @@ const Comunidades = (props) => {
         navigate("/BorrarComunidad");
     };
 
-    if (usuario.administrador) {
+    if (administrador) {
         return (
             <div className='paginaComunidades'>
                 <Header />
                 <div className="contenidoComunidades">
                     {
-                        comunidades.map(({comunidad, id, titulo, imagen, genero, fecha, popularidad, descripcion}) => {
+                        comunidades.map((comunidad) => {
+                            const { id, titulo, imagen, genero, fecha, popularidad, descripcion} = comunidad;
                             return (
                                 <div className="cardsComunidades" key={id}>
                                     <Card style={{ width: '35rem', flex: 'column', backgroundColor: '#272b30', marginRight:'1em' }} >
                                         <Card.Img style={{ width: '35rem', height: '20rem' }} variant="top" src={
-                                            imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : imagen
+                                            !imagen ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : imagen
                                         } />
                                         <Card.Body style={{ color: '#fff' }}>
                                             <Card.Title>{titulo}</Card.Title>
@@ -93,13 +94,14 @@ const Comunidades = (props) => {
         )
     }
     
-    if (!usuario.administrador) {
+    if (!administrador) {
         return (
             <div className='paginaComunidades'>
                 <Header />
                 <div className="contenidoComunidades">
                     {
-                        comunidades.map(({comunidad, id, titulo, imagen, genero, fecha, popularidad, descripcion}) => {
+                        comunidades.map((comunidad) => {
+                            const { id, titulo, imagen, genero, fecha, popularidad, descripcion} = comunidad;
                             return (
                                 <div className="cardsComunidades" key={id}>
                                     <Card style={{ width: '30rem', flex: 'column', backgroundColor: '#272b30', marginRight:'1em' }} >
