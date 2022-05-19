@@ -9,6 +9,7 @@ import { LOGOUT } from '../../redux/actions';
 
 const Header = (props) => {
     let navigate = useNavigate();
+    const usuario = props.credenciales.usuario;
     const cambiarPagina = (pagina) => {
         setTimeout(() => {
             navigate(pagina)
@@ -39,8 +40,8 @@ const Header = (props) => {
             </div>
         )
     }
-    
-    if (props.credenciales.usuario.administrador) {
+
+    if (usuario.administrador) {
         return (
             <div className='Header'>
                 <div className='containerLogo'>
@@ -60,7 +61,7 @@ const Header = (props) => {
         )
     }
 
-    if (props.credenciales.usuario.administrador === false) {
+    if (!usuario.administrador) {
         return (
             <div className='Header'>
                 <div className='containerLogo'>
