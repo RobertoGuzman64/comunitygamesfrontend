@@ -19,6 +19,7 @@ import 'moment/locale/es';
 
 const Comunidades = (props) => {
     let navigate = useNavigate();
+    const usuario = props.credenciales.usuario;
     const [comunidades, setComunidades] = useState([]);
     const [msgError, setMsgError] = useState('');
 
@@ -54,25 +55,25 @@ const Comunidades = (props) => {
         navigate("/BorrarComunidad");
     };
 
-    if (props.credenciales.usuario.administrador === true) {
+    if (usuario.administrador) {
         return (
             <div className='paginaComunidades'>
                 <Header />
                 <div className="contenidoComunidades">
                     {
-                        comunidades.map((comunidad) => {
+                        comunidades.map(({comunidad, id, titulo, imagen, genero, fecha, popularidad, descripcion}) => {
                             return (
-                                <div className="cardsComunidades" key={comunidad.id}>
-                                    <Card style={{ width: '35rem', flex: 'column', backgroundColor: '#272b30',marginRight:'1em' }} >
+                                <div className="cardsComunidades" key={id}>
+                                    <Card style={{ width: '35rem', flex: 'column', backgroundColor: '#272b30', marginRight:'1em' }} >
                                         <Card.Img style={{ width: '35rem', height: '20rem' }} variant="top" src={
-                                            comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
+                                            imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : imagen
                                         } />
                                         <Card.Body style={{ color: '#fff' }}>
-                                            <Card.Title>{comunidad.titulo}</Card.Title>
-                                            <Card.Text>Genero : {comunidad.genero}</Card.Text>
-                                            <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
-                                            <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
-                                            <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
+                                            <Card.Title>{titulo}</Card.Title>
+                                            <Card.Text>Genero : {genero}</Card.Text>
+                                            <Card.Text>Fecha de Lanzamiento : {moment(fecha).format('LL')}</Card.Text>
+                                            <Card.Text>Popularidad : {popularidad}</Card.Text>
+                                            <Card.Text>Descripción : {descripcion}</Card.Text>
                                             &nbsp;&nbsp;&nbsp;
                                             <Button onClick={() => verComunidad(comunidad)} variant="outline-secondary">Ver Comunidad</Button>
                                             &nbsp;&nbsp;
@@ -90,25 +91,27 @@ const Comunidades = (props) => {
                 <Footer />
             </div>
         )
-    } else {
+    }
+    
+    if (!usuario.administrador) {
         return (
             <div className='paginaComunidades'>
                 <Header />
                 <div className="contenidoComunidades">
                     {
-                        comunidades.map((comunidad) => {
+                        comunidades.map(({comunidad, id, titulo, imagen, genero, fecha, popularidad, descripcion}) => {
                             return (
-                                <div className="cardsComunidades" key={comunidad.id}>
-                                    <Card style={{ width: '30rem', flex: 'column', backgroundColor: '#272b30' }} >
+                                <div className="cardsComunidades" key={id}>
+                                    <Card style={{ width: '30rem', flex: 'column', backgroundColor: '#272b30', marginRight:'1em' }} >
                                         <Card.Img style={{ width: '30rem', height: '20rem' }} variant="top" src={
-                                            comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
+                                            imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : imagen
                                         } />
                                         <Card.Body style={{ color: '#fff' }}>
-                                            <Card.Title>{comunidad.titulo}</Card.Title>
-                                            <Card.Text>Genero : {comunidad.genero}</Card.Text>
-                                            <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
-                                            <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
-                                            <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
+                                            <Card.Title>{titulo}</Card.Title>
+                                            <Card.Text>Genero : {genero}</Card.Text>
+                                            <Card.Text>Fecha de Lanzamiento : {moment(fecha).format('LL')}</Card.Text>
+                                            <Card.Text>Popularidad : {popularidad}</Card.Text>
+                                            <Card.Text>Descripción : {descripcion}</Card.Text>
                                             <Button onClick={() => verComunidad(comunidad)} variant="secondary">Ver Comunidad</Button>
                                         </Card.Body>
                                     </Card>
