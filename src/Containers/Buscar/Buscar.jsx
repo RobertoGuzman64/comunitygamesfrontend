@@ -18,8 +18,8 @@ import 'moment/locale/es';
 
 const Buscar = (props) => {
     let navigate = useNavigate();
-
-    const [ msgError, setMsgError ] = useState('');
+    const { administrador } = props.credenciales.usuario;
+    const [msgError, setMsgError] = useState('');
     const [genero, setGenero] = useState("");
 
     useEffect(() => {
@@ -38,46 +38,100 @@ const Buscar = (props) => {
             setMsgError(error);
         }
     }
-    
+
     const verComunidad = async (comunidad) => {
         props.dispatch({ type: DATOS_COMUNIDAD, payload: comunidad });
         navigate("/Comunidad");
     };
 
-    return (
-        <div className='paginaBuscar'>
-            <Header />
-            <div className='buscador'>
-                <input className='inputBuscar' placeholder="Busca el género que mas te guste ejem..(guerra) (estrategia)" autoComplete="off" onChange={(ev) => manejador(ev)} />
-                <Button onClick={() => busquedaPorGenero()} variant="light">Buscar</Button>
+    const modificarComunidad = async (comunidad) => {
+        await props.dispatch({ type: DATOS_COMUNIDAD, payload: comunidad });
+        navigate("/EditarComunidad");
+    };
+
+    const borrarComunidad = async (comunidad) => {
+        await props.dispatch({ type: DATOS_COMUNIDAD, payload: comunidad });
+        navigate("/BorrarComunidad");
+    };
+
+    if (administrador) {
+        return (
+            <div className='paginaBuscar'>
+                <Header />
+                <div className='buscador'>
+                    <input className='inputBuscar' placeholder="Busca el género que mas te guste ejemplo.. ( guerra ) ( estrategia )" autoComplete="off" onChange={(ev) => manejador(ev)} />
+                    <Button onClick={() => busquedaPorGenero()} variant="light">Buscar</Button>
+                </div>
+                <div className="contenidoBuscar">
+                    {
+                        props.comunidades.map((comunidad) => {
+                            return (
+                                <div className="cardsBuscar" key={comunidad.id}>
+                                    <Card style={{ width: '35rem', flex: 'column', backgroundColor: '#272b30', marginRight: '1em' }} >
+                                        <Card.Img style={{ width: '35rem', height: '20rem' }} variant="top" src={
+                                            comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
+                                        } />
+                                        <Card.Body style={{ color: '#fff' }}>
+                                            <Card.Title>{comunidad.titulo}</Card.Title>
+                                            <Card.Text>Genero : {comunidad.genero}</Card.Text>
+                                            <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
+                                            <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
+                                            <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <Button onClick={() => verComunidad(comunidad)} variant="outline-secondary">Ver Comunidad</Button>
+                                            &nbsp;&nbsp;
+                                            <Button onClick={() => modificarComunidad(comunidad)} variant="secondary">Modificar Comunidad</Button>
+                                            &nbsp;&nbsp;
+                                            <Button onClick={() => borrarComunidad(comunidad)} variant="danger">Eliminar Comunidad</Button>
+                                            {msgError}
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <Footer />
             </div>
-            <div className="contenidoBuscar">
-                {
-                    props.comunidades.map((comunidad) => {
-                        return (
-                            <div className="cardsBuscar" key={comunidad.id}>
-                                <Card style={{ width: '30rem' }} >
-                                    <Card.Img variant="top" src={
-                                        comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
-                                    } />
-                                    <Card.Body>
-                                        <Card.Title>{comunidad.titulo}</Card.Title>
-                                        <Card.Text>Genero : {comunidad.genero}</Card.Text>
-                                        <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
-                                        <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
-                                        <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
-                                        <Button onClick={() => verComunidad(comunidad)} variant="secondary">Ver Comunidad</Button>
-                                        {msgError}
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                        )
-                    })
-                }
+        )
+    }
+
+    if (!administrador) {
+        return (
+            <div className='paginaBuscar'>
+                <Header />
+                <div className='buscador'>
+                    <input className='inputBuscar' placeholder="Busca el género que mas te guste ejemplo.. ( guerra ) ( estrategia )" autoComplete="off" onChange={(ev) => manejador(ev)} />
+                    <Button onClick={() => busquedaPorGenero()} variant="light">Buscar</Button>
+                </div>
+                <div className="contenidoBuscar">
+                    {
+                        props.comunidades.map((comunidad) => {
+                            return (
+                                <div className="cardsBuscar" key={comunidad.id}>
+                                    <Card style={{ width: '35rem', flex: 'column', backgroundColor: '#272b30', marginRight: '1em' }} >
+                                        <Card.Img style={{ width: '35rem', height: '20rem' }} variant="top" src={
+                                            comunidad.imagen === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : comunidad.imagen
+                                        } />
+                                        <Card.Body style={{ color: '#fff' }}>
+                                            <Card.Title>{comunidad.titulo}</Card.Title>
+                                            <Card.Text>Genero : {comunidad.genero}</Card.Text>
+                                            <Card.Text>Fecha de Lanzamiento : {moment(comunidad.fecha).format('LL')}</Card.Text>
+                                            <Card.Text>Popularidad : {comunidad.popularidad}</Card.Text>
+                                            <Card.Text>Descripción : {comunidad.descripcion}</Card.Text>
+                                            <Button onClick={() => verComunidad(comunidad)} variant="outline-secondary">Ver Comunidad</Button>
+                                            {msgError}
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
-    )
+        )
+    }
 }
 
 export default connect((state) => ({
